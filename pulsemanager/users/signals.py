@@ -1,11 +1,10 @@
+import logging
+
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 from pulsemanager.surveys   import models as survey_models
 from pulsemanager.users     import models as user_models
-
-import logging
-
 
 
 
@@ -34,6 +33,8 @@ def post_save_User_receiver(sender, instance, *args, **kwargs):
     logger.addHandler(handler)
     logger.setLevel(logging.DEBUG)
 
+    logger.debug('*** start post_save_User_receiver ***')
+
     activestatuschanged = instance.tracker.has_changed("acitvesurvey")
     previousstatus      = instance.tracker.previous("acitvesurvey")
 
@@ -48,11 +49,17 @@ def post_save_User_receiver(sender, instance, *args, **kwargs):
             #if status changed from active to inactive
             #set the current survey to inactive
             thesurvey.issurveyactive = False
+            # set expired in lime survey, remember i keep a separate (in)active status
+            #                             and I can't actually deactivate in LS
             thesurvey.save()
+            thesurvey.expire()
 
     except Exception as e:
         logger.debug(e)
-        #CASE 1 & CASE3 off/new to on
+        #CASE 1 & CASE 3 off/new to on
         #TODO handle multple result exception
         if activestatuschanged and not previousstatus:
+            logger.debug('*** call _create_new_survey ***')
             _create_new_survey(instance)
+    
+    logger.debug('*** end post_save_User_receiver ***')

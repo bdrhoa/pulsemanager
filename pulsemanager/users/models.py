@@ -16,9 +16,9 @@ class User(AbstractUser):
     #survey          = models.ForeignKey(survey_models.Survey, null=True, blank=True)
     # First Name and Last Name do not cover name patterns
     # around the globe.
-    name            = models.CharField(_('Name of User'), blank=True, max_length=255)
-    churchname      = models.CharField(_('Name of Church'), blank=True, max_length=255)
-    acitvesurvey    = models.BooleanField(_('Is Survey Active'), default=True) #just for toggle switch in UI
+    name = models.CharField(_('Name of User'), blank=True, max_length=255)
+    churchname = models.CharField(_('Name of Church'), blank=True, max_length=255)
+    acitvesurvey = models.BooleanField(_('Is Survey Active'), default=True) #just for toggle switch in UI
 
     def __str__(self):
         return self.username

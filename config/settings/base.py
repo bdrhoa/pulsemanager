@@ -56,6 +56,7 @@ LOCAL_APPS = [
 
     # Your stuff: custom apps go here
     'pulsemanager.surveys',
+    'pulsemanager.lsrc3',
     # custom users app
     'pulsemanager.users.apps.UsersConfig',
 ]
