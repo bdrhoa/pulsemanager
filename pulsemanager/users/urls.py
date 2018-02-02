@@ -23,4 +23,9 @@ urlpatterns = [
         view=views.UserUpdateView.as_view(),
         name='update'
     ),
+    url(
+        regex=r'^~report/$',
+        view=views.UserReportView,
+        name='report'
+    ),
 ]

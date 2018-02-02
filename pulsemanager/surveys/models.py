@@ -21,10 +21,11 @@ LS_DEMO_URL = 'https://lsdemo.limequery.com/admin/remotecontrol'
 LS_DEMO_USERNAME = 'limedemo'
 LS_DEMO_PASSWORD = 'demo'
 LS_DEMO_BASESURVEY_ID =519893
-#LS_DEMO_URL = 'http://page2voice.com/pulse/index.php/admin/remotecontrol'
-#LS_DEMO_USERNAME = 'pulse'
-#LS_DEMO_PASSWORD = 'PdmswOAfh9PY'
-#LS_DEMO_BASESURVEY_ID = 535175 
+
+LS_DEMO_URL = 'http://page2voice.com/pulse/index.php/admin/remotecontrol'
+LS_DEMO_USERNAME = 'pulse'
+LS_DEMO_PASSWORD = 'PdmswOAfh9PY'
+LS_DEMO_BASESURVEY_ID = 535175 
 
 LS_DEMO_NEW_SURVEY_NAME = "Copy of Base Survey"
 

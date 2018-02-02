@@ -1,7 +1,9 @@
+
 from django.core.urlresolvers import reverse
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render
 
 from .models import User
 
@@ -43,3 +45,12 @@ class UserListView(LoginRequiredMixin, ListView):
     # These next two lines tell the view to index lookups by username
     slug_field = 'username'
     slug_url_kwarg = 'username'
+
+#def UserReportView(LoginRequiredMixin, request):
+def UserReportView(request):
+    model = User
+    #TODO: retrieve the SID
+    context = {'sid': 519893}
+    template = 'users/report.html'
+    return render(request, template, context)
+
