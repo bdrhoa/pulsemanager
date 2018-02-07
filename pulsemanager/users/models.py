@@ -12,6 +12,8 @@ from model_utils import FieldTracker
 @python_2_unicode_compatible
 class User(AbstractUser):
     tracker = FieldTracker()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     #survey          = models.ForeignKey(survey_models.Survey, null=True, blank=True)
     # First Name and Last Name do not cover name patterns

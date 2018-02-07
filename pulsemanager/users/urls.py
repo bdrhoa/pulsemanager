@@ -1,4 +1,6 @@
 from django.conf.urls import url
+from django.views.generic import TemplateView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from . import views
 
@@ -24,8 +26,10 @@ urlpatterns = [
         name='update'
     ),
     url(
-        regex=r'^~report/$',
-        view=views.UserReportView,
+        regex=r'^reports/rptemplate/$',
+        view=views.UserReportView.as_view(),
         name='report'
     ),
 ]
+
+urlpatterns += staticfiles_urlpatterns()

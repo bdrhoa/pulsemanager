@@ -32,7 +32,9 @@ LS_DEMO_NEW_SURVEY_NAME = "Copy of Base Survey"
 class Survey(models.Model):
    
     '''The Django Survey Model'''
-
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
     surveyid = models.IntegerField(_('Survey ID'), primary_key=True, default=0)
     surveyname = models.CharField(_('Name of Survey'), blank=True, max_length=255)
     issurveyactive = models.BooleanField(_('Is Survey Active'), default=True)

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+{% load staticfiles %} 
+
 <html>
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="content-type">
@@ -13,22 +16,18 @@
           <span class="c11">
           </span>
         </p>
-        <p class="c7">
-          <span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 5.33px;">
-            <img alt="A long, thin line to divide sections of the document" src="images/image4.png" style="width: 624.00px; height: 5.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Divider Line">
-            </span>
-          </p>
+        
         </div>
         <p class="c8">
           <span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 461.00px; height: 127.00px;">
-            <img alt="" src="images/image2.png" style="width: 461.00px; height: 127.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="">
+            <img alt="" src="/static/images/mmn_logo_en.png" style="width: 461.00px; height: 127.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="">
             </span>
           </p>
           <p class="c24 title" id="h.t407xxhvh3jg">
             <span>Take Your Church&rsquo;s Pulse</span>
           </p>
           <p class="c20 subtitle" id="h.i5w5ymi3yyfj">
-            <span>Survey Participants: &lt;numParticipants&gt;</span>
+            <span>Survey Participants: {{responses}}</span>
           </p>
           <p class="c12">
             <span class="c3">
@@ -83,10 +82,10 @@
             </span>
           </p>
           <p class="c20">
-            <span class="c13">&lt;churchName&gt;</span>
+            <span class="c13">{{church_name}}</span>
           </p>
           <p class="c20">
-            <span class="c13">&lt;reportDate&gt;</span>
+            <span class="c13">{{report_date}}</span>
           </p>
           <p class="c16 c21">
             <span class="c15">
@@ -97,7 +96,7 @@
           </h1>
           <p class="c4">
             <span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 385.33px;">
-              <img alt="" src="images/image1.png" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
+              <img alt="" src="/static/images/{{img_vision}}" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
               </span>
             </p>
             <h2 class="c0" id="h.et3sf72n1rc2">
@@ -130,7 +129,7 @@
             <h1 class="break c5">Leadership</h1>
               <p class="c4">
                 <span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 385.33px;">
-                  <img alt="" src="images/image1.png" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
+                  <img alt="" src="/static/images/{{img_leadership}}" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
                   </span>
                 </p>
                 <h2 class="c0" id="h.k7ai5miled50">
@@ -166,7 +165,7 @@
                   </h1>
                   <p class="c4">
                     <span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 385.33px;">
-                      <img alt="" src="images/image1.png" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
+                      <img alt="" src="/static/images/{{img_mobilization}}" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
                       </span>
                     </p>
                     <h2 class="c0" id="h.gtoeis3t24lc">
@@ -202,7 +201,7 @@
                       </h1>
                       <p class="c4">
                         <span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 385.33px;">
-                          <img alt="" src="images/image1.png" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
+                          <img alt="" src="/static/images/{{img_stewardship}}" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
                           </span>
                         </p>
                         <h2 class="c0" id="h.hv90q4jq2hl3">
@@ -237,7 +236,7 @@
                           </h1>
                           <p class="c4">
                             <span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 385.33px;">
-                              <img alt="" src="images/image1.png" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
+                              <img alt="" src="/static/images/{{img_context}}" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
                               </span>
                             </p>
                             <h2 class="c0" id="h.kmafowy6s9">
@@ -272,7 +271,7 @@
                               </h1>
                               <p class="c4">
                                 <span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 385.33px;">
-                                  <img alt="" src="images/image1.png" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
+                                  <img alt="" src="/static/images/{{img_evangelism}}" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
                                   </span>
                                 </p>
                                 <h2 class="c0" id="h.4msh59xwk4tv">
@@ -307,7 +306,7 @@
                                   </h1>
                                   <p class="c4">
                                     <span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 385.33px;">
-                                      <img alt="" src="images/image1.png" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
+                                      <img alt="" src="/static/images/{{img_disipleship}}" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
                                       </span>
                                     </p>
                                     <h2 class="c0" id="h.7aquxnj9bre7">
@@ -342,7 +341,7 @@
                                       </h1>
                                       <p class="c4">
                                         <span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 385.33px;">
-                                          <img alt="" src="images/image1.png" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
+                                          <img alt="" src="/static/images/{{img_service}}" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
                                           </span>
                                         </p>
                                         <h2 class="c0" id="h.98y61qenh3mm">
@@ -377,7 +376,7 @@
                                           </h1>
                                           <p class="c4">
                                             <span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 385.33px;">
-                                              <img alt="" src="images/image1.png" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
+                                              <img alt="" src="/static/images/{{img_fellowship}}" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
                                               </span>
                                             </p>
                                             <h2 class="c0" id="h.fh87oekk1ode">
@@ -412,7 +411,7 @@
                                               </h1>
                                               <p class="c4">
                                                 <span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 385.33px;">
-                                                  <img alt="" src="images/image1.png" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
+                                                  <img alt="" src="/static/images/{{img_worship}}" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
                                                   </span>
                                                 </p>
                                                 <h2 class="c0" id="h.on9gz4k7ad5g">
@@ -447,7 +446,7 @@
                                                   </h1>
                                                   <p class="c4">
                                                     <span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 385.33px;">
-                                                      <img alt="" src="images/image1.png" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
+                                                      <img alt="" src="/static/images/{{img_category}}" style="width: 624.00px; height: 385.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="Points scored">
                                                       </span>
                                                     </p>
                                                     <h2 class="c0" id="h.4lk4jz1tyunz">
@@ -499,7 +498,7 @@
                                                       </h1>
                                                       <p class="c8">
                                                         <span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 468.00px;">
-                                                          <img alt="" src="images/image3.png" style="width: 624.00px; height: 468.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="">
+                                                          <img alt="" src="/static/images/{{img_radar}}" style="width: 624.00px; height: 468.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="">
                                                           </span>
                                                         </p>
                                                       </body>

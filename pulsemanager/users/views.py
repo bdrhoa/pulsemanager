@@ -1,6 +1,6 @@
 
 from django.core.urlresolvers import reverse
-from django.views.generic import DetailView, ListView, RedirectView, UpdateView
+from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
@@ -46,11 +46,28 @@ class UserListView(LoginRequiredMixin, ListView):
     slug_field = 'username'
     slug_url_kwarg = 'username'
 
-#def UserReportView(LoginRequiredMixin, request):
-def UserReportView(request):
+class UserReportView(LoginRequiredMixin, TemplateView):
     model = User
-    #TODO: retrieve the SID
-    context = {'sid': 519893}
-    template = 'users/report.html'
-    return render(request, template, context)
+    template_name = 'users/reports/rptemplate/report.html'
+    def get_context_data(self, **kwargs):
+        #context = super(DisplayTaskView, self).get_context_data(kwargs)
+            #TODO: retrieve the actual data
+        context = {'sid': 519893,
+        'church_name': 'Lakeview Bible',
+        'report_date': '5 Feb 2018',
+        'responses': 57,
+        'img_vision': 'image1.png',
+        'img_leadership': 'image1.png',
+        'img_mobilization': 'image1.png',
+        'img_stewardship': 'image1.png',
+        'img_context': 'image1.png',
+        'img_evangelism': 'image1.png',
+        'img_disipleship': 'image1.png',
+        'img_service': 'image1.png',
+        'img_fellowship': 'image1.png',
+        'img_worship': 'image1.png',
+        'img_category': 'image1.png',
+        'img_radar': 'radar.png'
+        }  
+        return context
 
