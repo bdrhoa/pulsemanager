@@ -118,3 +118,7 @@ ENV/
 
 # mypy
 .mypy_cache/
+.vscode/launch.json
+pulsemanager/.DS_Store
+pulsemanager/.DS_Store
+pulsemanager/.DS_Store
