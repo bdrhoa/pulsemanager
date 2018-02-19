@@ -16,24 +16,13 @@ from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
 
-
-#LS_DEMO_URL = 'https://lsdemo.limequery.com/admin/remotecontrol'
-#LS_DEMO_USERNAME = 'limedemo'
-##LS_DEMO_PASSWORD = 'demo'
-#LS_DEMO_BASESURVEY_ID =77736
-
-#LS_DEMO_URL = 'http://page2voice.com/pulse/index.php/admin/remotecontrol'
-#LS_DEMO_USERNAME = 'pulse'
-#LS_DEMO_PASSWORD = 'PdmswOAfh9PY'
-#LS_DEMO_BASESURVEY_ID = 112992 
-
-LS_DEMO_URL = 'http://54.172.148.195/index.php/admin/remotecontrol'
-LS_DEMO_USERNAME = os.environ["PULSEMGRUSER"]
-LS_DEMO_PASSWORD = os.environ["PULSEMGRPSWD"]
-LS_DEMO_BASESURVEY_ID = 77736 
+LS_URL = 'http://54.172.148.195/index.php/admin/remotecontrol'
+LS_USERNAME = os.environ["PULSEMGRUSER"]
+LS_PASSWORD = os.environ["PULSEMGRPSWD"]
+LS_BASESURVEY_ID = 77736 
 
 
-LS_DEMO_NEW_SURVEY_NAME = "Copy of Base Survey"
+LS_NEW_SURVEY_NAME = "Copy of Base Survey"
 
 class Survey(models.Model):
    
@@ -68,7 +57,7 @@ class Survey(models.Model):
         logger.setLevel(logging.DEBUG)
         
         logger.debug('*** start copy_limesurvey ***')
-        lssession = lsrc.Session(LS_DEMO_URL, LS_DEMO_USERNAME, LS_DEMO_PASSWORD)
+        lssession = lsrc.Session(LS_URL, LS_USERNAME, LS_PASSWORD)
         logger.debug('**********WE HAVE A SESSION*************')
         logger.debug('sessionid: %s',lssession)
         #TODO decativate existing survey if one exists
@@ -77,7 +66,7 @@ class Survey(models.Model):
 
         #self.surveyid = random.randint(1000, 9999)
         self.surveyname = self.user.username + " - " + datetime.now().isoformat()
-        self.surveyid = lssession.copy_survey(LS_DEMO_BASESURVEY_ID, self.surveyname)
+        self.surveyid = lssession.copy_survey(LS_BASESURVEY_ID, self.surveyname)
         logger.debug('surveyid: %s',self.surveyid)
         self.issurveyactive = True
         lssession.activate_survey(self.surveyid)
@@ -90,7 +79,7 @@ class Survey(models.Model):
     
         import pulsemanager.lsrc3.session as lsrc
 
-        lssession = lsrc.Session(LS_DEMO_URL, LS_DEMO_USERNAME, LS_DEMO_PASSWORD)
+        lssession = lsrc.Session(LS_URL, LS_USERNAME, LS_PASSWORD)
         lssession.expire_survey(self.surveyid)
         lssession.close()
 
