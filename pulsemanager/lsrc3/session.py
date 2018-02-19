@@ -302,7 +302,7 @@ class Session(object):
 
     def export_responses(self, surveyToExport):
         request = self._request('export_responses',
-                                [self.key,surveyToExport,"json","en","full","long" ])
+                                [self.key,surveyToExport,"csv","en","full","long" ])
         return self._post(request)
 
     def session():

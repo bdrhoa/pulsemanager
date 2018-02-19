@@ -17,15 +17,21 @@ from django.utils.translation import ugettext_lazy as _
 
 
 
-LS_DEMO_URL = 'https://lsdemo.limequery.com/admin/remotecontrol'
-LS_DEMO_USERNAME = 'limedemo'
-LS_DEMO_PASSWORD = 'demo'
-LS_DEMO_BASESURVEY_ID =519893
+#LS_DEMO_URL = 'https://lsdemo.limequery.com/admin/remotecontrol'
+#LS_DEMO_USERNAME = 'limedemo'
+##LS_DEMO_PASSWORD = 'demo'
+#LS_DEMO_BASESURVEY_ID =77736
 
-LS_DEMO_URL = 'http://page2voice.com/pulse/index.php/admin/remotecontrol'
-LS_DEMO_USERNAME = 'pulse'
-LS_DEMO_PASSWORD = 'PdmswOAfh9PY'
-LS_DEMO_BASESURVEY_ID = 535175 
+#LS_DEMO_URL = 'http://page2voice.com/pulse/index.php/admin/remotecontrol'
+#LS_DEMO_USERNAME = 'pulse'
+#LS_DEMO_PASSWORD = 'PdmswOAfh9PY'
+#LS_DEMO_BASESURVEY_ID = 112992 
+
+LS_DEMO_URL = 'http://54.172.148.195/index.php/admin/remotecontrol'
+LS_DEMO_USERNAME = 'user'
+LS_DEMO_PASSWORD = 'XTJhn349i4Wd'
+LS_DEMO_BASESURVEY_ID = 77736 
+
 
 LS_DEMO_NEW_SURVEY_NAME = "Copy of Base Survey"
 
