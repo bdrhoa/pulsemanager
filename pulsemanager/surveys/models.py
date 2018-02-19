@@ -28,8 +28,8 @@ from django.utils.translation import ugettext_lazy as _
 #LS_DEMO_BASESURVEY_ID = 112992 
 
 LS_DEMO_URL = 'http://54.172.148.195/index.php/admin/remotecontrol'
-LS_DEMO_USERNAME = 'user'
-LS_DEMO_PASSWORD = 'XTJhn349i4Wd'
+LS_DEMO_USERNAME = os.environ["PULSEMGRUSER"]
+LS_DEMO_PASSWORD = os.environ["PULSEMGRPSWD"]
 LS_DEMO_BASESURVEY_ID = 77736 
 
 
