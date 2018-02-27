@@ -124,7 +124,13 @@ class Survey(models.Model):
 
         lssession.close()
 
-        return df
+        #Get rid of non-numeric fields.
+        df = df.drop(['id', 'lastpage', 'seed', 'Country', 'lang', 'AgeGroup', 'Gender', \
+         'Race', 'MinistryRole'], axis = 1)
+
+        means = df.mean(axis = 0, numeric_only = True)
+
+        return means
 
     def createreport(self):
         '''Create the PDF report for the church'''
