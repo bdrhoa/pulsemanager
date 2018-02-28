@@ -129,10 +129,11 @@ class Survey(models.Model):
          'Race', 'MinistryRole'], axis = 1)
 
         means = df.mean(axis = 0, numeric_only = True)
+        means['responses'] = len(df)
 
         return means
 
     def createreport(self):
         '''Create the PDF report for the church'''
-        df = self.get_data()
-        return df
+        reportdata = self.get_data()
+        return reportdata
