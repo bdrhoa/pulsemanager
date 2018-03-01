@@ -27,3 +27,6 @@ class User(AbstractUser):
 
     def get_absolute_url(self):
         return reverse('users:detail', kwargs={'username': self.username})
+
+    def get_survey(self):
+        return self.surveys.all().order_by('-updated_at')[0]
