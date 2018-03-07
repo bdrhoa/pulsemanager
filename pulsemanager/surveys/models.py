@@ -132,7 +132,13 @@ class Survey(models.Model):
         means['responses'] = len(df)
 
         return means
-
+    
+    def barchart(self,cat, values):
+            # Plots a box chart.
+        from matplotlib.ticker import FuncFormatter
+        import matplotlib.pyplot as plt
+        import numpy as np
+    
     def radargraph(self,cat, values):
         # Plots a radar chart.
 
@@ -209,7 +215,7 @@ class Survey(models.Model):
             ax.text(angle_rad, 100 + distance_ax, cat[i], size=10, horizontalalignment=ha, verticalalignment="center")
 
         #Save plolar plut
-        fileName = "pulsemanager/static/images/{surveyid}_radar.png".format(surveyid =self.surveyid)
+        fileName = "pulsemanager/templates/users/reports/rptemplate/images/{surveyid}_radar.png".format(surveyid =self.surveyid)
         plt.savefig(fileName, bbox_inches='tight')
 
         #open in wwebpage
@@ -224,6 +230,7 @@ class Survey(models.Model):
         '''Create the PDF report for the church'''
         reportdata = self.get_data()
         categories = ['one','two','three','four','five','six','seven','eight','nine','ten']
+        # normalize the data based on a max of 70 possilbe "points". This makes the graph spread accross 5 groups of 20 
         radardata = [int(round(reportdata['q1tot']/70*100,0)), int(round(reportdata['q2tot']/70*100,0)), \
                     int(round(reportdata['q3tot']/70*100,0)), int(round(reportdata['q4tot']/70*100,0)), \
                     int(round(reportdata['q5tot']/70*100,0)), int(round(reportdata['q6tot']/70*100,0)), \
@@ -232,4 +239,4 @@ class Survey(models.Model):
 
         self.radargraph(categories, radardata)
 
-        return True
+        return reportdata

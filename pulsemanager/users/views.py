@@ -1,3 +1,5 @@
+import datetime
+import requests
 
 from django.core.urlresolvers import reverse
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView
@@ -52,10 +54,14 @@ class UserReportView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         #context = super(DisplayTaskView, self).get_context_data(kwargs)
             #TODO: retrieve the actual data
-        context = {'sid': 519893,
+        theuser = self.request.user
+        thesurvey = theuser.get_survey().surveyid
+        reportdata = theuser.get_survey().createreport()
+        
+        context = {'sid': thesurvey,
         'church_name': 'Lakeview Bible',
-        'report_date': '5 Feb 2018',
-        'responses': 57,
+        'report_date': str(datetime.date.today()),
+        'responses': int(reportdata['responses']),
         'img_vision': 'image1.png',
         'img_leadership': 'image1.png',
         'img_mobilization': 'image1.png',
@@ -67,7 +73,6 @@ class UserReportView(LoginRequiredMixin, TemplateView):
         'img_fellowship': 'image1.png',
         'img_worship': 'image1.png',
         'img_category': 'image1.png',
-        'img_radar': 'radar.png'
+        'img_radar': "{surveyid}_radar.png".format(surveyid = thesurvey)
         }  
         return context
-
