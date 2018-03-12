@@ -11,7 +11,7 @@ import io
 from pulsemanager.users import models as user_models
 
 from django.contrib.auth.models import AbstractUser
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
@@ -31,7 +31,9 @@ class Survey(models.Model):
     surveyid = models.IntegerField(_('Survey ID'), primary_key=True, default=0)
     surveyname = models.CharField(_('Name of Survey'), blank=True, max_length=255)
     issurveyactive = models.BooleanField(_('Is Survey Active'), default=True)
-    user = models.ForeignKey(user_models.User, related_name='surveys')
+    user = models.ForeignKey(user_models.User, 
+            related_name='surveys',
+            on_delete=models.DO_NOTHING,)
 
     def __str__(self):
         return self.surveyname
@@ -215,7 +217,7 @@ class Survey(models.Model):
             ax.text(angle_rad, 100 + distance_ax, cat[i], size=10, horizontalalignment=ha, verticalalignment="center")
 
         #Save plolar plut
-        fileName = "pulsemanager/templates/users/reports/rptemplate/images/{surveyid}_radar.png".format(surveyid =self.surveyid)
+        fileName = "pulsemanager/static/images/{surveyid}_radar.png".format(surveyid =self.surveyid)
         plt.savefig(fileName, bbox_inches='tight')
 
         #open in wwebpage
