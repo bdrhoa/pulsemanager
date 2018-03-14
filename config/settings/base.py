@@ -7,7 +7,11 @@ https://docs.djangoproject.com/en/dev/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
+
+#TODO: use https://direnv.net/ for enviroment vars
+
 import environ
+import os
 
 ROOT_DIR = environ.Path(__file__) - 3  # (pulsemanager/config/settings/base.py - 3 = pulsemanager/)
 APPS_DIR = ROOT_DIR.path('pulsemanager')
@@ -113,8 +117,18 @@ MANAGERS = ADMINS
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 # Uses django-environ to accept uri format
 # See: https://django-environ.readthedocs.io/en/latest/#supported-types
+#DATABASES = {
+#    'default': env.db('DATABASE_URL', default='postgres:///pulsemanager'),
+#}
+
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres:///pulsemanager'),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'pulsemanager',
+        'USER': 'postgres',
+        'HOST': os.environ["PULSEDBHOST"],
+        'PORT': 5432, 
+    }
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
