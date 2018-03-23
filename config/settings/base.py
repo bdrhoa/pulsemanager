@@ -126,6 +126,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'pulsemanager',
         'USER': 'postgres',
+        'PASSWORD': 'bitnami',
         'HOST': os.environ["PULSEDBHOST"],
         'PORT': 5432, 
     }
