@@ -230,6 +230,8 @@ class Survey(models.Model):
 
     def createreport(self):
         '''Create the PDF report for the church'''
+        import matplotlib
+        matplotlib.use('Agg')
         reportdata = self.get_data()
         categories = ['one','two','three','four','five','six','seven','eight','nine','ten']
         # normalize the data based on a max of 70 possilbe "points". This makes the graph spread accross 5 groups of 20 
