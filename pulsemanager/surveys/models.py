@@ -93,7 +93,7 @@ class Survey(models.Model):
         #data = lssession.export_responses(sid)
         sdata= base64.b64decode(data[0]) 
         df = pd.read_csv(io.StringIO(sdata.decode('utf-8')),sep=';')
-     
+
         df['q1tot'] =  df['q1[vis1]'] + df['q1[vis2]'] + df['q1[vis3]'] + \
             df['q1[vis4]'] + df['q1[vis5]'] + df['q1[vis6]'] + df['q1[vis7]']
 
@@ -135,22 +135,27 @@ class Survey(models.Model):
 
         return means
     
-    def barchart(self,cat, values):
+    def barchart(self, cat, values, title, xlabel, ylabel, xticks):
             # Plots a box chart.
-        from matplotlib.ticker import FuncFormatter
+        #from matplotlib.ticker import FuncFormatterfrom matplotlib.ticker import FuncFormatter
         import matplotlib.pyplot as plt
         import numpy as np
+
+        index = np.arange(len(cat))
+        plt.bar(index, values)
+        plt.xlabel(xlabel, fontsize=5)
+        plt.ylabel(ylabel, fontsize=5)
+        plt.xticks(index, xticks, fontsize=5, rotation=30)
+        plt.title(title)
+        fileName = "pulsemanager/static/images/{surveyid}_{title}.png".format(surveyid =self.surveyid,
+                        title=title.lower())
+        plt.savefig(fileName, bbox_inches='tight')
     
     def radargraph(self,cat, values):
         # Plots a radar chart.
 
         from math import pi
         import matplotlib.pyplot as plt, mpld3
-
-
-        # Set data
-        #cat = ['Speed', 'Reliability', 'Comfort', 'Safety', 'Effieciency']
-        #values = [90, 60, 65, 70, 40]
 
         N = len(cat)
 
@@ -233,6 +238,61 @@ class Survey(models.Model):
         import matplotlib
         matplotlib.use('Agg')
         reportdata = self.get_data()
+        print("****report data ***")
+        print(reportdata)
+        print("*********")
+
+        categories = ['1','2','3','4','5','6','7','8','9','10']
+
+        xticks = ['1','2','3','4','5','6','7']
+        '''
+df['q1tot'] =  df['q1[vis1]'] + df['q1[vis2]'] + df['q1[vis3]'] + \
+            df['q1[vis4]'] + df['q1[vis5]'] + df['q1[vis6]'] + df['q1[vis7]']
+
+        df['q2tot'] = df['q2[lea1]'] + df['q2[lea2]'] + df['q2[lea3]'] + \
+            df['q2[lea4]'] + df['q2[lea5]'] + df['q2[lea6]'] + df['q2[lea7]']
+
+        df['q3tot'] = df['q3[bod1]'] + df['q3[bod2]'] + df['q3[bod3]'] + \
+             df['q3[bod4]'] + df['q3[bod5]'] +  df['q3[bod6]'] + df['q3[bod7]']
+
+        df['q4tot'] = df['q4[res1]'] +  df['q4[res2]'] + df['q4[res3]'] + \
+            df['q4[res4]'] + df['q4[res5]'] + df['q4[res6]'] + df['q4[res7]']
+
+        df['q5tot'] = df['q5[con1]'] + df['q5[con2]'] + df['q5[con3]'] + \
+            df['q5[con4]'] + df['q5[con5]'] + df['q5[con6]'] + df['q5[con7]']
+        
+        df['q6tot'] = df['q6[eva1]'] + df['q6[eva2]'] + df['q6[eva3]'] + \
+             df['q6[eva4]'] + df['q6[eva5]'] + df['q6[eva6]'] +  df['q6[eva7]']
+        
+        df['q7tot'] = df['q7[edu1]'] + df['q7[edu2]'] + df['q7[edu3]'] + \
+             df['q7[edu4]'] + df['q7[edu5]'] + df['q7[edu6]'] + df['q7[edu7]']
+
+        df['q8tot'] = df['q8[ser1]'] + df['q8[ser2]'] + df['q8[ser3]'] + \
+             df['q8[ser4]'] + df['q8[ser5]']  + df['q8[ser6]'] + df['q8[ser7]']
+             
+        df['q9tot'] = df['q9[fel1]'] + df['q9[fel2]'] + df['q9[fel3]'] + \
+             df['q9[fel4]'] + df['q9[fel5]'] + df['q9[fel6]'] + df['q9[fel7]']
+        
+        df['q10tot'] = df['q10[wor1]'] + df['q10[wor2]'] + df['q10[wor3]'] + \
+            df['q10[wor4]'] + df['q10[wor5]'] + df['q10[wor6]'] +  df['q10[wor7]']
+
+
+        '''
+
+        #VISION
+        print("*** barchart data ***")
+        print(reportdata['q1[vis1]'], reportdata['q1[vis2]'], reportdata['q1[vis3]'],
+            reportdata['q1[vis4]'], reportdata['q1[vis5]'], reportdata['q1[vis6]'],
+            reportdata['q1[vis7]'])
+        print("*********")
+        
+        barchartdata = [reportdata['q1[vis1]'], reportdata['q1[vis2]'], reportdata['q1[vis3]'],
+            reportdata['q1[vis4]'], reportdata['q1[vis5]'], reportdata['q1[vis6]'],
+            reportdata['q1[vis7]']]
+
+
+        self.barchart(categories, barchartdata, "VISION", "Question", "Average", xticks)
+
         categories = ['one','two','three','four','five','six','seven','eight','nine','ten']
         # normalize the data based on a max of 70 possilbe "points". This makes the graph spread accross 5 groups of 20 
         radardata = [int(round(reportdata['q1tot']/70*100,0)), int(round(reportdata['q2tot']/70*100,0)), \
@@ -240,7 +300,7 @@ class Survey(models.Model):
                     int(round(reportdata['q5tot']/70*100,0)), int(round(reportdata['q6tot']/70*100,0)), \
                     int(round(reportdata['q7tot']/70*100,0)), int(round(reportdata['q8tot']/70*100,0)), \
                     int(round(reportdata['q9tot']/70*100,0)), int(round(reportdata['q10tot']/70*100,0))]
-
-        self.radargraph(categories, radardata)
+      
+        self.radargraph(categories, radardata)    
 
         return reportdata
