@@ -140,9 +140,12 @@ class Survey(models.Model):
         #from matplotlib.ticker import FuncFormatterfrom matplotlib.ticker import FuncFormatter
         import matplotlib.pyplot as plt
         import numpy as np
+        import matplotlib.colors
 
         index = np.arange(len(categories))
         plt.bar(index, values, color='b')
+        plt.axhline(7, color="green", linewidth=5)
+        plt.axhline(3, color="red", linewidth=5)
         plt.xlabel(xlabel, fontsize=5)
         plt.ylabel(ylabel, fontsize=5)
         plt.xticks(index, categories, fontsize=5, rotation=30)
@@ -224,14 +227,6 @@ class Survey(models.Model):
         #Save plolar plut
         fileName = "pulsemanager/static/images/{surveyid}_radar.png".format(surveyid =self.surveyid)
         plt.savefig(fileName, bbox_inches='tight')
-
-        #open in wwebpage
-
-        #mpld3.show()
-
-        # Show polar plot
-        #plt.show()
-        # shareeditflag
 
     def createreport(self):
         '''Create the PDF report for the church'''
@@ -322,8 +317,6 @@ class Survey(models.Model):
                     reportdata['q5tot']/7, reportdata['q6tot']/7, \
                     reportdata['q7tot']/7, reportdata['q8tot']/7, \
                     reportdata['q9tot']/7, reportdata['q10tot']/7]
-        
-        print (barchartdata)
 
         self.barchart(categories, barchartdata, "CATEGORY", "Question", "Average")
 
