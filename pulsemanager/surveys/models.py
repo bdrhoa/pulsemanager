@@ -90,8 +90,8 @@ class Survey(models.Model):
         lssession = lsrc.Session(LS_URL, LS_USERNAME, LS_PASSWORD)
  
         data = lssession.export_responses(self.surveyid)
-        #data = lssession.export_responses(sid)
         sdata= base64.b64decode(data[0]) 
+
         df = pd.read_csv(io.StringIO(sdata.decode('utf-8')),sep=';')
 
         df['q1tot'] =  df['q1[vis1]'] + df['q1[vis2]'] + df['q1[vis3]'] + \
@@ -135,10 +135,10 @@ class Survey(models.Model):
 
         return means
  
-    def autolabel(self,rects, ax, values):
+    def autolabel(self,rects, ax):
        
-            #Attach a text label above each bar displaying its height
-        i = 0
+        #Attach a text label above each bar displaying its height
+
         for rect in rects:
             height = rect.get_height()
             ax.text(rect.get_x() + rect.get_width()/2., 1.005*height,
@@ -147,13 +147,12 @@ class Survey(models.Model):
     
 
     def barchart(self, categories, values, title, xlabel, ylabel):
-            # Plots a box chart.
+        # Plots a box chart.
         #from matplotlib.ticker import FuncFormatterfrom matplotlib.ticker import FuncFormatter
         import matplotlib.pyplot as plt
         import numpy as np
         import matplotlib.colors
         from pylab import arange
-        
 
         index = np.arange(len(categories))
         fig, ax = plt.subplots()
@@ -166,7 +165,7 @@ class Survey(models.Model):
         pos = arange(10)+.05 
         plt.yticks(pos,( '1','2','3','4','5','6','7','8','9','10'))
         plt.title(title)
-        self.autolabel(rects1, ax, values)
+        self.autolabel(rects1, ax)
         fileName = "pulsemanager/static/images/{surveyid}_{title}.png".format(surveyid =self.surveyid,
                         title=title.lower())
         plt.savefig(fileName, bbox_inches='tight')
@@ -176,6 +175,7 @@ class Survey(models.Model):
 
         from math import pi
         import matplotlib.pyplot as plt, mpld3
+        import numpy as np
 
         N = len(cat)
 
@@ -240,6 +240,12 @@ class Survey(models.Model):
                 ha, distance_ax = "right", 1
 
             ax.text(angle_rad, 100 + distance_ax, cat[i], size=10, horizontalalignment=ha, verticalalignment="center")
+        
+        #Add thresholds
+        HIGHT = 70
+        LOWT = 30
+        ax.plot(np.linspace(0, 2*np.pi, 100), np.ones(100)*HIGHT, c='g', ls='--')
+        ax.plot(np.linspace(0, 2*np.pi, 100), np.ones(100)*LOWT, c='r', ls='--')
 
         #Save plolar plut
         fileName = "pulsemanager/static/images/{surveyid}_radar.png".format(surveyid =self.surveyid)
