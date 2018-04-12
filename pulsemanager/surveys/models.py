@@ -134,22 +134,39 @@ class Survey(models.Model):
         means['responses'] = len(df)
 
         return means
+ 
+    def autolabel(self,rects, ax, values):
+       
+            #Attach a text label above each bar displaying its height
+        i = 0
+        for rect in rects:
+            height = rect.get_height()
+            ax.text(rect.get_x() + rect.get_width()/2., 1.005*height,
+                    '%2.2f' % height,
+                    ha='center', va='bottom')
     
+
     def barchart(self, categories, values, title, xlabel, ylabel):
             # Plots a box chart.
         #from matplotlib.ticker import FuncFormatterfrom matplotlib.ticker import FuncFormatter
         import matplotlib.pyplot as plt
         import numpy as np
         import matplotlib.colors
+        from pylab import arange
+        
 
         index = np.arange(len(categories))
-        plt.bar(index, values, color='b')
+        fig, ax = plt.subplots()
+        rects1 = ax.bar(index, values, color='b')
         plt.axhline(7, color="green", linewidth=5)
         plt.axhline(3, color="red", linewidth=5)
         plt.xlabel(xlabel, fontsize=5)
         plt.ylabel(ylabel, fontsize=5)
         plt.xticks(index, categories, fontsize=5, rotation=30)
+        pos = arange(10)+.05 
+        plt.yticks(pos,( '1','2','3','4','5','6','7','8','9','10'))
         plt.title(title)
+        self.autolabel(rects1, ax, values)
         fileName = "pulsemanager/static/images/{surveyid}_{title}.png".format(surveyid =self.surveyid,
                         title=title.lower())
         plt.savefig(fileName, bbox_inches='tight')
@@ -196,7 +213,7 @@ class Survey(models.Model):
         plt.xticks(x_as[:-1], [])
 
         # Set yticks
-        plt.yticks([20, 40, 60, 80, 100], ["15", "30", "45", "60", "75"])
+        plt.yticks([20, 40, 60, 80, 100], ["2", "4", "6", "8", "10"])
 
         # Plot data
         ax.plot(x_as, values, linewidth=0, linestyle='solid', zorder=3)
@@ -318,15 +335,16 @@ class Survey(models.Model):
                     reportdata['q7tot']/7, reportdata['q8tot']/7, \
                     reportdata['q9tot']/7, reportdata['q10tot']/7]
 
-        self.barchart(categories, barchartdata, "CATEGORY", "Question", "Average")
+        self.barchart(categories, barchartdata, "CATEGORY", "", "Average")
 
         #RADAR CHART
          # normalize the data based on a max of 70 possilbe "points". This makes the graph spread accross 5 groups of 20 
+
         radardata = [int(round(reportdata['q1tot']/70*100,0)), int(round(reportdata['q2tot']/70*100,0)), \
-                int(round(reportdata['q3tot']/70*100,0)), int(round(reportdata['q4tot']/70*100,0)), \
-                int(round(reportdata['q5tot']/70*100,0)), int(round(reportdata['q6tot']/70*100,0)), \
-                int(round(reportdata['q7tot']/70*100,0)), int(round(reportdata['q8tot']/70*100,0)), \
-                int(round(reportdata['q9tot']/70*100,0)), int(round(reportdata['q10tot']/70*100,0))]
+            int(round(reportdata['q3tot']/70*100,0)), int(round(reportdata['q4tot']/70*100,0)), \
+            int(round(reportdata['q5tot']/70*100,0)), int(round(reportdata['q6tot']/70*100,0)), \
+            int(round(reportdata['q7tot']/70*100,0)), int(round(reportdata['q8tot']/70*100,0)), \
+            int(round(reportdata['q9tot']/70*100,0)), int(round(reportdata['q10tot']/70*100,0))]
 
         self.radargraph(categories, radardata)    
 
