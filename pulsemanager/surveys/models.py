@@ -56,22 +56,14 @@ class Survey(models.Model):
         logger.addHandler(handler)
         logger.setLevel(logging.DEBUG)
         
-        logger.debug('*** start copy_limesurvey ***')
         lssession = lsrc.Session(LS_URL, LS_USERNAME, LS_PASSWORD)
-        logger.debug('**********WE HAVE A SESSION*************')
-        logger.debug('sessionid: %s',lssession)
-        #TODO decativate existing survey if one exists
-            #list survey by user with expired = none
-            #set expired = datetime.now().isoformat()
 
-        #self.surveyid = random.randint(1000, 9999)
         self.surveyname = self.user.username + " - " + datetime.now().isoformat()
         self.surveyid = lssession.copy_survey(LS_BASESURVEY_ID, self.surveyname)
         logger.debug('surveyid: %s',self.surveyid)
         self.issurveyactive = True
         lssession.activate_survey(self.surveyid)
         lssession.close()
-        logger.debug('*** end copy_limesurvey ***')
 
     def expire(self):
         ''' Set the survey expire date. '''

@@ -57,9 +57,10 @@ class UserReportView(LoginRequiredMixin, TemplateView):
         theuser = self.request.user
         thesurvey = theuser.get_survey().surveyid
         reportdata = theuser.get_survey().createreport()
+        thechurch = theuser.churchname
         
         context = {'sid': thesurvey,
-        'church_name': 'Lakeview Bible',
+        'church_name': thechurch,
         'report_date': str(datetime.date.today()),
         'responses': int(reportdata['responses']),
         'img_vision': "{surveyid}_vision.png".format(surveyid = thesurvey),
