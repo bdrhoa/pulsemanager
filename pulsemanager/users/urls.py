@@ -29,7 +29,7 @@ urlpatterns = [
     ),
     url(
         regex=r'^reports/rptemplate/$',
-        view=views.UserReportView.as_view(),
+        view=views.PDFReportView.as_view(),
         name='report'
     ),
 ]

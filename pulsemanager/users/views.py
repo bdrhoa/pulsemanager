@@ -7,6 +7,8 @@ from django.views.generic import DetailView, ListView, RedirectView, UpdateView,
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 
+from django_weasyprint import WeasyTemplateResponseMixin
+
 from .models import User
 
 
@@ -77,3 +79,8 @@ class UserReportView(LoginRequiredMixin, TemplateView):
         'img_radar': "{surveyid}_radar.png".format(surveyid = thesurvey)
         }  
         return context
+
+class PDFReportView(WeasyTemplateResponseMixin, UserReportView):
+    '''
+    We do not need to do anything here.
+    '''
