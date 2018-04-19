@@ -280,6 +280,37 @@ class HierarchyField(models.CharField):
     def get_internal_type(self):
         return "CharField"
 
+DENOMINATIONS = (
+    ('AN',	_('Anglican')),
+    ('AG', _('Assemblies of God')),
+    ('BT', _('Baptist')),
+    ('CC', _('Charismatic')),
+    ('CMA', _('Christian Missionary Alliance')),
+    ('COG', _('Church of God')),
+    ('CVC', _('Covenant Church')),
+    ('EL', _('Episcopal')),
+    ('EVF', _('Evangelical Free')),
+    ('IP', _('Independent Pentecostal')),
+    ('LN', _('Lutheran')),
+    ('ME', _('Menonite')),
+    ('MT', _('Methodist')),
+    ('NZ', _('Nazarene')),
+    ('PB',_('Presbyterian')),
+    ('RD', _('Reformed')),
+    ('WN', _('Wesleyan')),
+    ('OTR', _('Other'))
+)
+
+class DenominationField(models.CharField):
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault('max_length', 3)
+        kwargs.setdefault('choices', DENOMINATIONS)
+
+        super(DenominationField, self).__init__(*args, **kwargs)
+
+    def get_internal_type(self):
+        return "CharField"
+
 @python_2_unicode_compatible
 class User(AbstractUser):
     tracker = FieldTracker()
@@ -295,6 +326,7 @@ class User(AbstractUser):
     country = CountryField()
     language = LanguageField()
     hierarchy = HierarchyField()
+    denomination = DenominationField()
 
     def __str__(self):
         return self.username
