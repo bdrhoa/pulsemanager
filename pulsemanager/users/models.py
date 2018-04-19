@@ -254,12 +254,28 @@ COUNTRIES = (
     ('ZZ', _('Unknown or unspecified country')),
 )
 
+
 class CountryField(models.CharField):
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('max_length', 2)
         kwargs.setdefault('choices', COUNTRIES)
 
         super(CountryField, self).__init__(*args, **kwargs)
+
+    def get_internal_type(self):
+        return "CharField"
+
+CHURCHHIEGHERARCHY = (
+    ('MN', _('Main')),
+    ('CD', _('Daughter')),
+)
+
+class HierarchyField(models.CharField):
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault('max_length', 2)
+        kwargs.setdefault('choices', CHURCHHIEGHERARCHY)
+
+        super(HierarchyField, self).__init__(*args, **kwargs)
 
     def get_internal_type(self):
         return "CharField"
@@ -273,11 +289,12 @@ class User(AbstractUser):
     #survey          = models.ForeignKey(survey_models.Survey, null=True, blank=True)
     # First Name and Last Name do not cover name patterns
     # around the globe.
-    name = models.CharField(_('Name of User'), blank=True, max_length=255)
-    churchname = models.CharField(_('Name of Church'), blank=True, max_length=255)
+    name = models.CharField(_('Name of User'), blank=False, max_length=255)
+    churchname = models.CharField(_('Name of Church'), blank=False, max_length=255)
     acitvesurvey = models.BooleanField(_('Is Survey Active'), default=True) #just for toggle switch in UI
     country = CountryField()
     language = LanguageField()
+    hierarchy = HierarchyField()
 
     def __str__(self):
         return self.username

@@ -18,9 +18,14 @@
         <p>{{ object.churchname }}</p>
       {% endif %}
 
+      {% if object.hierarchy %}
+      <p>{{object.hierarchy.as_p}}</p>
+      {% endif %}
+
       {% if object.country %}
         <p>{{object.country.as_p}}</p>
       {% endif %}
+
       {% if object.langauge %}
       <p>{{object.language.as_p}}</p>
       {% endif %}

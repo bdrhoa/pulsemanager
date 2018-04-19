@@ -276,7 +276,7 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
 
 class UserUpdateView(LoginRequiredMixin, UpdateView):
 
-    fields = ['name', 'churchname', 'acitvesurvey', 'country', 'language']
+    fields = ['name', 'churchname', 'acitvesurvey', 'country', 'language', 'hierarchy']
     #country = UpdateView.ChoiceField(choices=list(COUNTRIES))
 
     # we already imported User in the view code above, remember?
@@ -302,8 +302,6 @@ class UserReportView(LoginRequiredMixin, TemplateView):
     model = User
     template_name = 'users/reports/rptemplate/report.html'
     def get_context_data(self, **kwargs):
-        #context = super(DisplayTaskView, self).get_context_data(kwargs)
-            #TODO: retrieve the actual data
         theuser = self.request.user
         thesurvey = theuser.get_survey().surveyid
         reportdata = theuser.get_survey().createreport()
