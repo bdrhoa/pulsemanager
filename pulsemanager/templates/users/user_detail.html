@@ -17,6 +17,9 @@
       {% if object.churchname %}
         <p>{{ object.churchname }}</p>
       {% endif %}
+      {% if object.country %}
+        <p>{{object.country.as_p}}</p>
+    {% endif %}
       <p>
       <input type="checkbox" onclick="return false" readonly value ={{object.acitvesurvey}} {% if object.acitvesurvey %} checked="checked" {% endif %}  data-toggle="toggle" data-on="Active" data-off="Not Active" data-onstyle="success" data-offstyle="danger">
     </p>
