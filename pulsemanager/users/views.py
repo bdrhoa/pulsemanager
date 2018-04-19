@@ -276,7 +276,7 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
 
 class UserUpdateView(LoginRequiredMixin, UpdateView):
 
-    fields = ['name', 'churchname', 'acitvesurvey', 'country']
+    fields = ['name', 'churchname', 'acitvesurvey', 'country', 'language']
     #country = UpdateView.ChoiceField(choices=list(COUNTRIES))
 
     # we already imported User in the view code above, remember?

@@ -6,6 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.apps import AppConfig
 from django.db.models.signals import pre_save
 from model_utils import FieldTracker
+from languages.fields import LanguageField
 #from .django_countries.fields import CountryField
 #from .django_countries import countries
 
@@ -276,6 +277,7 @@ class User(AbstractUser):
     churchname = models.CharField(_('Name of Church'), blank=True, max_length=255)
     acitvesurvey = models.BooleanField(_('Is Survey Active'), default=True) #just for toggle switch in UI
     country = CountryField()
+    language = LanguageField()
 
     def __str__(self):
         return self.username
