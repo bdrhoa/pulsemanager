@@ -119,7 +119,7 @@ class Survey(models.Model):
         lssession.close()
 
         #Get rid of non-numeric fields.
-        df = df.drop(['id', 'lastpage', 'seed', 'Country', 'lang', 'AgeGroup', 'Gender', \
+        df = df.drop(['id', 'lastpage', 'seed', 'AgeGroup', 'Gender', \
          'Race', 'MinistryRole'], axis = 1)
 
         means = df.mean(axis = 0, numeric_only = True)
@@ -131,16 +131,24 @@ class Survey(models.Model):
        
         #Attach a text label above each bar displaying its height
 
+        #Because the values of the bar chart are passed in as
+        # (value -1), we must increase the height by 1 to get the
+        # correct label value. Then we have to take (height -1) to 
+        # correct label position.
+        
         for rect in rects:
-            height = rect.get_height()
-            ax.text(rect.get_x() + rect.get_width()/2., 1.005*height,
+            height = rect.get_height() + 1
+            ax.text(rect.get_x() + rect.get_width()/2., 1.005*(height -1),
                     '%2.2f' % height,
                     ha='center', va='bottom')
     
 
     def barchart(self, categories, values, title, xlabel, ylabel):
         # Plots a box chart.
-        #from matplotlib.ticker import FuncFormatterfrom matplotlib.ticker import FuncFormatter
+
+        # Note that the chart is labeled 1 to 10, but the 1 is at
+        # the 0 position. So each actual value must be passed in as
+        # (value -1).
         import matplotlib.pyplot as plt
         import numpy as np
         import matplotlib.colors
@@ -252,73 +260,73 @@ class Survey(models.Model):
         categories = ['1','2','3','4','5','6','7']
 
         #VISION
-        barchartdata = [reportdata['q1[vis1]'], reportdata['q1[vis2]'], reportdata['q1[vis3]'],
-            reportdata['q1[vis4]'], reportdata['q1[vis5]'], reportdata['q1[vis6]'],
-            reportdata['q1[vis7]']]
+        barchartdata = [reportdata['q1[vis1]'] -1, reportdata['q1[vis2]'] -1, reportdata['q1[vis3]'] -1,
+            reportdata['q1[vis4]'] -1, reportdata['q1[vis5]'] -1, reportdata['q1[vis6]'] -1,
+            reportdata['q1[vis7]'] -1]
 
         self.barchart(categories, barchartdata, "VISION", "Question", "Average")
 
         #LEADERSHIP
-        barchartdata = [reportdata['q2[lea1]'], reportdata['q2[lea2]'], reportdata['q2[lea3]'],
-            reportdata['q2[lea4]'], reportdata['q2[lea5]'], reportdata['q2[lea6]'],
-            reportdata['q2[lea7]']]
+        barchartdata = [reportdata['q2[lea1]'] -1, reportdata['q2[lea2]'] -1, reportdata['q2[lea3]'] -1,
+            reportdata['q2[lea4]'] -1, reportdata['q2[lea5]'] -1, reportdata['q2[lea6]'] -1,
+            reportdata['q2[lea7]'] -1]
 
         self.barchart(categories, barchartdata, "LEADERSHIP", "Question", "Average")
 
 
         #MOBILIZATION
-        barchartdata = [reportdata['q3[bod1]'], reportdata['q3[bod2]'], reportdata['q3[bod3]'],
-            reportdata['q3[bod4]'], reportdata['q3[bod5]'], reportdata['q3[bod6]'],
-            reportdata['q3[bod7]']]
+        barchartdata = [reportdata['q3[bod1]'] -1, reportdata['q3[bod2]'] -1, reportdata['q3[bod3]'] -1,
+            reportdata['q3[bod4]'] -1, reportdata['q3[bod5]'] -1, reportdata['q3[bod6]'] -1,
+            reportdata['q3[bod7]'] -1]
 
         self.barchart(categories, barchartdata, "MOBILIZATION", "Question", "Average")
 
         #STEWARDSHIP
-        barchartdata = [reportdata['q4[res1]'], reportdata['q4[res2]'], reportdata['q4[res3]'],
-            reportdata['q4[res4]'], reportdata['q4[res5]'], reportdata['q4[res6]'],
-            reportdata['q4[res7]']]
+        barchartdata = [reportdata['q4[res1]'] -1, reportdata['q4[res2]'] -1, reportdata['q4[res3]'] -1,
+            reportdata['q4[res4]'] -1, reportdata['q4[res5]'] -1, reportdata['q4[res6]'] -1,
+            reportdata['q4[res7]'] -1]
 
         self.barchart(categories, barchartdata, "STEWARDSHIP", "Question", "Average")
 
         #CONTEXT
-        barchartdata = [reportdata['q5[con1]'], reportdata['q5[con2]'], reportdata['q5[con3]'],
-            reportdata['q5[con4]'], reportdata['q5[con5]'], reportdata['q5[con6]'],
-            reportdata['q5[con7]']]
+        barchartdata = [reportdata['q5[con1]'] -1, reportdata['q5[con2]'] -1, reportdata['q5[con3]'] -1,
+            reportdata['q5[con4]'] -1, reportdata['q5[con5]'] -1, reportdata['q5[con6]'] -1,
+            reportdata['q5[con7]'] -1]
 
         self.barchart(categories, barchartdata, "CONTEXT", "Question", "Average")
 
         #EVANGELISM
-        barchartdata = [reportdata['q6[eva1]'], reportdata['q6[eva2]'], reportdata['q6[eva3]'],
-            reportdata['q6[eva4]'], reportdata['q6[eva5]'], reportdata['q6[eva6]'],
-            reportdata['q6[eva7]']]
+        barchartdata = [reportdata['q6[eva1]'] -1, reportdata['q6[eva2]'] -1, reportdata['q6[eva3]'] -1,
+            reportdata['q6[eva4]'] -1, reportdata['q6[eva5]'] -1, reportdata['q6[eva6]'] -1,
+            reportdata['q6[eva7]'] -1]
 
         self.barchart(categories, barchartdata, "EVANGELISM", "Question", "Average")
 
         #DISIPLESHIP
-        barchartdata = [reportdata['q7[edu1]'], reportdata['q7[edu2]'], reportdata['q7[edu3]'],
-            reportdata['q7[edu4]'], reportdata['q7[edu5]'], reportdata['q7[edu6]'],
-            reportdata['q7[edu7]']]
+        barchartdata = [reportdata['q7[edu1]'] -1, reportdata['q7[edu2]'] -1, reportdata['q7[edu3]'] -1,
+            reportdata['q7[edu4]'] -1, reportdata['q7[edu5]'] -1, reportdata['q7[edu6]'] -1,
+            reportdata['q7[edu7]'] -1]
 
         self.barchart(categories, barchartdata, "DISIPLESHIP", "Question", "Average")
 
         #SERVICE
-        barchartdata = [reportdata['q8[ser1]'], reportdata['q8[ser2]'], reportdata['q8[ser3]'],
-            reportdata['q8[ser4]'], reportdata['q8[ser5]'], reportdata['q8[ser6]'],
-            reportdata['q8[ser7]']]
+        barchartdata = [reportdata['q8[ser1]'] -1, reportdata['q8[ser2]'] -1, reportdata['q8[ser3]'] -1,
+            reportdata['q8[ser4]'] -1, reportdata['q8[ser5]'] -1, reportdata['q8[ser6]'] -1,
+            reportdata['q8[ser7]'] -1]
 
         self.barchart(categories, barchartdata, "SERVICE", "Question", "Average")
 
         #FELLOWSHIP
-        barchartdata = [reportdata['q9[fel1]'], reportdata['q9[fel2]'], reportdata['q9[fel3]'],
-            reportdata['q9[fel4]'], reportdata['q9[fel5]'], reportdata['q9[fel6]'],
-            reportdata['q9[fel7]']]
+        barchartdata = [reportdata['q9[fel1]'] -1, reportdata['q9[fel2]'] -1, reportdata['q9[fel3]'] -1,
+            reportdata['q9[fel4]'] -1, reportdata['q9[fel5]'] -1, reportdata['q9[fel6]'] -1,
+            reportdata['q9[fel7]'] -1]
 
         self.barchart(categories, barchartdata, "FELLOWSHIP", "Question", "Average")
 
         #WORSHIP
-        barchartdata = [reportdata['q10[wor1]'], reportdata['q10[wor2]'], reportdata['q10[wor3]'],
-            reportdata['q10[wor4]'], reportdata['q10[wor5]'], reportdata['q10[wor6]'],
-            reportdata['q10[wor7]']]
+        barchartdata = [reportdata['q10[wor1]'] -1, reportdata['q10[wor2]'] -1, reportdata['q10[wor3]'] -1,
+            reportdata['q10[wor4]'] -1, reportdata['q10[wor5]'] -1, reportdata['q10[wor6]'] -1,
+            reportdata['q10[wor7]'] -1]
 
         self.barchart(categories, barchartdata, "WORSHIP", "Question", "Average")
 
@@ -327,11 +335,11 @@ class Survey(models.Model):
         'Stewardship','Context','Evangelism','Discipleship', \
         'Service','Fellowship','Worship']
 
-        barchartdata = [reportdata['q1tot']/7, reportdata['q2tot']/7, \
-                    reportdata['q3tot']/7, reportdata['q4tot']/7, \
-                    reportdata['q5tot']/7, reportdata['q6tot']/7, \
-                    reportdata['q7tot']/7, reportdata['q8tot']/7, \
-                    reportdata['q9tot']/7, reportdata['q10tot']/7]
+        barchartdata = [reportdata['q1tot']/7 -1, reportdata['q2tot']/7 -1, \
+                    reportdata['q3tot']/7 -1, reportdata['q4tot']/7 -1, \
+                    reportdata['q5tot']/7 -1, reportdata['q6tot']/7 -1, \
+                    reportdata['q7tot']/7 -1, reportdata['q8tot']/7 -1, \
+                    reportdata['q9tot']/7 -1, reportdata['q10tot']/7 -1]
 
         self.barchart(categories, barchartdata, "CATEGORY", "", "Average")
 
