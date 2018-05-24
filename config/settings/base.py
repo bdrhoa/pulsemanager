@@ -7,11 +7,7 @@ https://docs.djangoproject.com/en/dev/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
-
-#TODO: use https://direnv.net/ for enviroment vars
-
 import environ
-import os
 
 ROOT_DIR = environ.Path(__file__) - 3  # (pulsemanager/config/settings/base.py - 3 = pulsemanager/)
 APPS_DIR = ROOT_DIR.path('pulsemanager')
@@ -65,6 +61,7 @@ LOCAL_APPS = [
     'pulsemanager.lsrc3',
     # custom users app
     'pulsemanager.users.apps.UsersConfig',
+    # Your stuff: custom apps go here
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -108,7 +105,7 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.s
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = [
-    ("""Brad Rhoads""", 'brhoads@edutechmission.org'),
+    ("""Brad Rhoads""", 'bdrhoa@gmail.com'),
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
@@ -119,19 +116,8 @@ MANAGERS = ADMINS
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 # Uses django-environ to accept uri format
 # See: https://django-environ.readthedocs.io/en/latest/#supported-types
-#DATABASES = {
-#    'default': env.db('DATABASE_URL', default='postgres:///pulsemanager'),
-#}
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'pulsemanager',
-        'USER': 'postgres',
-        'PASSWORD': 'bitnami',
-        'HOST': os.environ["PULSEDBHOST"],
-        'PORT': 5432, 
-    }
+    'default': env.db('DATABASE_URL', default='postgres:///pulsemanager'),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
