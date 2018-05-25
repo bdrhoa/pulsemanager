@@ -179,7 +179,7 @@ class Survey(models.Model):
         # Plots a radar chart.
 
         from math import pi
-        import matplotlib.pyplot as plt, mpld3
+        import matplotlib.pyplot as plt
         import numpy as np
 
         N = len(cat)
