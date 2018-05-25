@@ -8,6 +8,8 @@ import os
 import logging
 import io
 
+import environ
+
 from pulsemanager.users import models as user_models
 
 from django.contrib.auth.models import AbstractUser
@@ -16,22 +18,25 @@ from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
+env = environ.Env()
 
-LS_URL = os.environ["PULSESERVER"]
-LS_USERNAME = os.environ["PULSEMGRUSER"]
-LS_PASSWORD = os.environ["PULSEMGRPSWD"]
+LS_URL = env('PULSESERVER')
+LS_USERNAME = env('PULSEMGRUSER')
+LS_PASSWORD = env('PULSEMGRPSWD')
 LS_BASESURVEY_ID = 77736 
 
+#ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['pulse.tycp.online', ])
+
 class Survey(models.Model):
-   
+
     '''The Django Survey Model'''
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
+
     surveyid = models.IntegerField(_('Survey ID'), primary_key=True, default=0)
     surveyname = models.CharField(_('Name of Survey'), blank=True, max_length=255)
     issurveyactive = models.BooleanField(_('Is Survey Active'), default=True)
-    user = models.ForeignKey(user_models.User, 
+    user = models.ForeignKey(user_models.User,
             related_name='surveys',
             on_delete=models.DO_NOTHING,)
 
@@ -41,11 +46,11 @@ class Survey(models.Model):
     def get_absolute_url(self):
         return reverse('survyes:detail', kwargs={'surveyname': self.surveyname})
 
-    
+
     def copy_limesurvey(self):
         ''' Copy the base Limesurvey survey and return the new id and name.
             just stubbed for now '''
-        
+
         import pulsemanager.lsrc3.session as lsrc
 
         logger = logging.getLogger()
@@ -55,7 +60,7 @@ class Survey(models.Model):
         handler.setFormatter(formatter)
         logger.addHandler(handler)
         logger.setLevel(logging.DEBUG)
-        
+
         lssession = lsrc.Session(LS_URL, LS_USERNAME, LS_PASSWORD)
 
         self.surveyname = self.user.username + " - " + datetime.now().isoformat()
@@ -67,22 +72,22 @@ class Survey(models.Model):
 
     def expire(self):
         ''' Set the survey expire date. '''
-    
+
         import pulsemanager.lsrc3.session as lsrc
 
         lssession = lsrc.Session(LS_URL, LS_USERNAME, LS_PASSWORD)
         lssession.expire_survey(self.surveyid)
         lssession.close()
-        
+
     def get_data(self):
         '''Get the survey data from limesurvey'''
 
         import pulsemanager.lsrc3.session as lsrc
 
         lssession = lsrc.Session(LS_URL, LS_USERNAME, LS_PASSWORD)
- 
+
         data = lssession.export_responses(self.surveyid)
-        sdata= base64.b64decode(data[0]) 
+        sdata= base64.b64decode(data[0])
 
         df = pd.read_csv(io.StringIO(sdata.decode('utf-8')),sep=';')
 
@@ -100,19 +105,19 @@ class Survey(models.Model):
 
         df['q5tot'] = df['q5[con1]'] + df['q5[con2]'] + df['q5[con3]'] + \
             df['q5[con4]'] + df['q5[con5]'] + df['q5[con6]'] + df['q5[con7]']
-        
+
         df['q6tot'] = df['q6[eva1]'] + df['q6[eva2]'] + df['q6[eva3]'] + \
              df['q6[eva4]'] + df['q6[eva5]'] + df['q6[eva6]'] +  df['q6[eva7]']
-        
+
         df['q7tot'] = df['q7[edu1]'] + df['q7[edu2]'] + df['q7[edu3]'] + \
              df['q7[edu4]'] + df['q7[edu5]'] + df['q7[edu6]'] + df['q7[edu7]']
 
         df['q8tot'] = df['q8[ser1]'] + df['q8[ser2]'] + df['q8[ser3]'] + \
              df['q8[ser4]'] + df['q8[ser5]']  + df['q8[ser6]'] + df['q8[ser7]']
-             
+
         df['q9tot'] = df['q9[fel1]'] + df['q9[fel2]'] + df['q9[fel3]'] + \
              df['q9[fel4]'] + df['q9[fel5]'] + df['q9[fel6]'] + df['q9[fel7]']
-        
+
         df['q10tot'] = df['q10[wor1]'] + df['q10[wor2]'] + df['q10[wor3]'] + \
             df['q10[wor4]'] + df['q10[wor5]'] + df['q10[wor6]'] +  df['q10[wor7]']
 
@@ -126,22 +131,22 @@ class Survey(models.Model):
         means['responses'] = len(df)
 
         return means
- 
+
     def autolabel(self,rects, ax):
-       
+
         #Attach a text label above each bar displaying its height
 
         #Because the values of the bar chart are passed in as
         # (value -1), we must increase the height by 1 to get the
-        # correct label value. Then we have to take (height -1) to 
+        # correct label value. Then we have to take (height -1) to
         # correct label position.
-        
+
         for rect in rects:
             height = rect.get_height() + 1
             ax.text(rect.get_x() + rect.get_width()/2., 1.005*(height -1),
                     '%2.2f' % height,
                     ha='center', va='bottom')
-    
+
 
     def barchart(self, categories, values, title, xlabel, ylabel):
         # Plots a box chart.
@@ -162,14 +167,14 @@ class Survey(models.Model):
         plt.xlabel(xlabel, fontsize=5)
         plt.ylabel(ylabel, fontsize=5)
         plt.xticks(index, categories, fontsize=5, rotation=30)
-        pos = arange(10)+.05 
+        pos = arange(10)+.05
         plt.yticks(pos,( '1','2','3','4','5','6','7','8','9','10'))
         plt.title(title)
         self.autolabel(rects1, ax)
         fileName = "pulsemanager/static/images/{surveyid}_{title}.png".format(surveyid =self.surveyid,
                         title=title.lower())
         plt.savefig(fileName, bbox_inches='tight')
-    
+
     def radargraph(self,cat, values):
         # Plots a radar chart.
 
@@ -240,7 +245,7 @@ class Survey(models.Model):
                 ha, distance_ax = "right", 1
 
             ax.text(angle_rad, 100 + distance_ax, cat[i], size=10, horizontalalignment=ha, verticalalignment="center")
-        
+
         #Add thresholds
         HIGHT = 70
         LOWT = 30
@@ -344,7 +349,7 @@ class Survey(models.Model):
         self.barchart(categories, barchartdata, "CATEGORY", "", "Average")
 
         #RADAR CHART
-         # normalize the data based on a max of 70 possilbe "points". This makes the graph spread accross 5 groups of 20 
+         # normalize the data based on a max of 70 possilbe "points". This makes the graph spread accross 5 groups of 20
 
         radardata = [int(round(reportdata['q1tot']/70*100,0)), int(round(reportdata['q2tot']/70*100,0)), \
             int(round(reportdata['q3tot']/70*100,0)), int(round(reportdata['q4tot']/70*100,0)), \
@@ -352,6 +357,6 @@ class Survey(models.Model):
             int(round(reportdata['q7tot']/70*100,0)), int(round(reportdata['q8tot']/70*100,0)), \
             int(round(reportdata['q9tot']/70*100,0)), int(round(reportdata['q10tot']/70*100,0))]
 
-        self.radargraph(categories, radardata)    
+        self.radargraph(categories, radardata)
 
         return reportdata
