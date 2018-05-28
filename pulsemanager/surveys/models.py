@@ -7,6 +7,7 @@ import pandas as pd
 import os
 import logging
 import io
+import boto3
 
 import environ
 
@@ -17,13 +18,16 @@ from django.urls import reverse
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
 
 env = environ.Env()
 
 LS_URL = env('PULSESERVER')
 LS_USERNAME = env('PULSEMGRUSER')
 LS_PASSWORD = env('PULSEMGRPSWD')
-LS_BASESURVEY_ID = 77736 
+LS_BASESURVEY_ID = 77736
+STATIC_URL = settings.STATIC_URL
+ISPROD = True if settings.ENVIRONMENT == "PROD" else False
 
 #ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['pulse.tycp.online', ])
 
@@ -171,9 +175,22 @@ class Survey(models.Model):
         plt.yticks(pos,( '1','2','3','4','5','6','7','8','9','10'))
         plt.title(title)
         self.autolabel(rects1, ax)
-        fileName = "pulsemanager/static/images/{surveyid}_{title}.png".format(surveyid =self.surveyid,
+
+        png_name = "{surveyid}_{title}.png".format(surveyid =self.surveyid,
                         title=title.lower())
-        plt.savefig(fileName, bbox_inches='tight')
+        #TODO: use djang_storages instead of boto3 directoy
+        if ISPROD:
+            img_data = io.BytesIO()
+            plt.savefig(img_data, format='png')
+            img_data.seek(0)
+            s3 = boto3.resource('s3',
+                aws_access_key_id=env("DJANGO_AWS_ACCESS_KEY_ID"),
+                aws_secret_access_key=env("DJANGO_AWS_SECRET_ACCESS_KEY"))
+            bucket = s3.Bucket(env("DJANGO_AWS_STORAGE_BUCKET_NAME"))
+            bucket.put_object(Body=img_data, ContentType='image/png', Key=png_name)
+        else:
+            fileName = "pulsemanager/static/images/{key}".format(key=png_name)
+            plt.savefig(fileName, bbox_inches='tight')
 
     def radargraph(self,cat, values):
         # Plots a radar chart.
@@ -252,9 +269,20 @@ class Survey(models.Model):
         ax.plot(np.linspace(0, 2*np.pi, 100), np.ones(100)*HIGHT, c='g', ls='--')
         ax.plot(np.linspace(0, 2*np.pi, 100), np.ones(100)*LOWT, c='r', ls='--')
 
-        #Save plolar plut
-        fileName = "pulsemanager/static/images/{surveyid}_radar.png".format(surveyid =self.surveyid)
-        plt.savefig(fileName, bbox_inches='tight')
+        png_name = "{surveyid}_radar.png".format(surveyid =self.surveyid)
+
+        if ISPROD:
+            img_data = io.BytesIO()
+            plt.savefig(img_data, format='png')
+            img_data.seek(0)
+            s3 = boto3.resource('s3',
+                aws_access_key_id=env("DJANGO_AWS_ACCESS_KEY_ID"),
+                aws_secret_access_key=env("DJANGO_AWS_SECRET_ACCESS_KEY"))
+            bucket = s3.Bucket(env("DJANGO_AWS_STORAGE_BUCKET_NAME"))
+            bucket.put_object(Body=img_data, ContentType='image/png', Key=png_name)
+        else:
+            fileName = "pulsemanager/static/images/{key}".format(key=png_name)
+            plt.savefig(fileName, bbox_inches='tight')
 
     def createreport(self):
         '''Create the PDF report for the church'''
