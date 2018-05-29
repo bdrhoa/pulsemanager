@@ -336,3 +336,6 @@ class User(AbstractUser):
 
     def get_survey(self):
         return self.surveys.all().order_by('-updated_at')[0]
+
+    def get_surveyid(self):
+        return self.get_survey().surveyid

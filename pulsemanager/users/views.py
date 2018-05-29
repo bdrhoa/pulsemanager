@@ -306,7 +306,7 @@ class UserReportView(LoginRequiredMixin, TemplateView):
         thesurvey = theuser.get_survey().surveyid
         reportdata = theuser.get_survey().createreport()
         thechurch = theuser.churchname
-        
+
         context = {'sid': thesurvey,
         'church_name': thechurch,
         'report_date': str(datetime.date.today()),
@@ -323,7 +323,7 @@ class UserReportView(LoginRequiredMixin, TemplateView):
         'img_worship': "{surveyid}_worship.png".format(surveyid = thesurvey),
         'img_category': "{surveyid}_category.png".format(surveyid = thesurvey),
         'img_radar': "{surveyid}_radar.png".format(surveyid = thesurvey)
-        }  
+        }
         return context
 
 class PDFReportView(WeasyTemplateResponseMixin, UserReportView):
