@@ -307,23 +307,42 @@ class UserReportView(LoginRequiredMixin, TemplateView):
         reportdata = theuser.get_survey().createreport()
         thechurch = theuser.churchname
 
-        context = {'sid': thesurvey,
-        'church_name': thechurch,
-        'report_date': str(datetime.date.today()),
-        'responses': int(reportdata['responses']),
-        'img_vision': "{surveyid}_vision.png".format(surveyid = thesurvey),
-        'img_leadership': "{surveyid}_leadership.png".format(surveyid = thesurvey),
-        'img_mobilization': "{surveyid}_mobilization.png".format(surveyid = thesurvey),
-        'img_stewardship': "{surveyid}_stewardship.png".format(surveyid = thesurvey),
-        'img_context': "{surveyid}_context.png".format(surveyid = thesurvey),
-        'img_evangelism': "{surveyid}_evangelism.png".format(surveyid = thesurvey),
-        'img_disipleship': "{surveyid}_disipleship.png".format(surveyid = thesurvey),
-        'img_service': "{surveyid}_service.png".format(surveyid = thesurvey),
-        'img_fellowship': "{surveyid}_fellowship.png".format(surveyid = thesurvey),
-        'img_worship': "{surveyid}_worship.png".format(surveyid = thesurvey),
-        'img_category': "{surveyid}_category.png".format(surveyid = thesurvey),
-        'img_radar': "{surveyid}_radar.png".format(surveyid = thesurvey)
-        }
+        if reportdata:
+            context = {'sid': thesurvey,
+            'church_name': thechurch,
+            'report_date': str(datetime.date.today()),
+            'responses': int(reportdata['responses']),
+            'img_vision': "{surveyid}_vision.png".format(surveyid = thesurvey),
+            'img_leadership': "{surveyid}_leadership.png".format(surveyid = thesurvey),
+            'img_mobilization': "{surveyid}_mobilization.png".format(surveyid = thesurvey),
+            'img_stewardship': "{surveyid}_stewardship.png".format(surveyid = thesurvey),
+            'img_context': "{surveyid}_context.png".format(surveyid = thesurvey),
+            'img_evangelism': "{surveyid}_evangelism.png".format(surveyid = thesurvey),
+            'img_disipleship': "{surveyid}_disipleship.png".format(surveyid = thesurvey),
+            'img_service': "{surveyid}_service.png".format(surveyid = thesurvey),
+            'img_fellowship': "{surveyid}_fellowship.png".format(surveyid = thesurvey),
+            'img_worship': "{surveyid}_worship.png".format(surveyid = thesurvey),
+            'img_category': "{surveyid}_category.png".format(surveyid = thesurvey),
+            'img_radar': "{surveyid}_radar.png".format(surveyid = thesurvey)
+            }
+        else:
+            context = {'sid': thesurvey,
+            'church_name': thechurch,
+            'report_date': str(datetime.date.today()),
+            'responses': 0,
+            'img_vision': "nodata.jpeg",
+            'img_leadership': "nodata.jpeg",
+            'img_mobilization': "nodata.jpeg",
+            'img_stewardship': "nodata.jpeg",
+            'img_context': "nodata.jpeg",
+            'img_evangelism': "nodata.jpeg",
+            'img_disipleship': "nodata.jpeg",
+            'img_service': "nodata.jpeg",
+            'img_fellowship': "nodata.jpeg",
+            'img_worship': "nodata.jpeg",
+            'img_category': "nodata.jpeg",
+            'img_radar': "nodata.jpeg"
+            }
         return context
 
 class PDFReportView(WeasyTemplateResponseMixin, UserReportView):

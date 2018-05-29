@@ -91,6 +91,9 @@ class Survey(models.Model):
         lssession = lsrc.Session(LS_URL, LS_USERNAME, LS_PASSWORD)
 
         data = lssession.export_responses(self.surveyid)
+
+        if len(data) < 3: return []
+
         sdata= base64.b64decode(data[0])
 
         df = pd.read_csv(io.StringIO(sdata.decode('utf-8')),sep=';')
@@ -289,6 +292,9 @@ class Survey(models.Model):
         import matplotlib
         matplotlib.use('Agg')
         reportdata = self.get_data()
+
+        if not reportdata:
+            return reportdata
 
         categories = ['1','2','3','4','5','6','7']
 
