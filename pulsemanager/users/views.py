@@ -307,7 +307,7 @@ class UserReportView(LoginRequiredMixin, TemplateView):
         reportdata = theuser.get_survey().createreport()
         thechurch = theuser.churchname
 
-        if reportdata:
+        if not reportdata.empty:
             context = {'sid': thesurvey,
             'church_name': thechurch,
             'report_date': str(datetime.date.today()),
