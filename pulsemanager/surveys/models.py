@@ -182,8 +182,9 @@ class Survey(models.Model):
 
         png_name = "{surveyid}_{title}.png".format(surveyid =self.surveyid,
                         title=title.lower())
-        #TODO: use djang_storages instead of boto3 directoy
+        #TODO: use djang_storages instead of boto3 directly
         if ISPROD:
+            png_name = "static/images/{key}".format(key=png_name)
             img_data = io.BytesIO()
             plt.savefig(img_data, format='png')
             img_data.seek(0)
@@ -192,6 +193,8 @@ class Survey(models.Model):
                 aws_secret_access_key=env("DJANGO_AWS_SECRET_ACCESS_KEY"))
             bucket = s3.Bucket(env("DJANGO_AWS_STORAGE_BUCKET_NAME"))
             bucket.put_object(Body=img_data, ContentType='image/png', Key=png_name)
+            object_acl = s3.ObjectAcl(env("DJANGO_AWS_STORAGE_BUCKET_NAME"),png_name)
+            response = object_acl.put(ACL='public-read')
         else:
             fileName = "pulsemanager/static/images/{key}".format(key=png_name)
             plt.savefig(fileName, bbox_inches='tight')
@@ -276,6 +279,7 @@ class Survey(models.Model):
         png_name = "{surveyid}_radar.png".format(surveyid =self.surveyid)
 
         if ISPROD:
+            png_name = "static/images/{key}".format(key=png_name)
             img_data = io.BytesIO()
             plt.savefig(img_data, format='png')
             img_data.seek(0)
@@ -284,6 +288,8 @@ class Survey(models.Model):
                 aws_secret_access_key=env("DJANGO_AWS_SECRET_ACCESS_KEY"))
             bucket = s3.Bucket(env("DJANGO_AWS_STORAGE_BUCKET_NAME"))
             bucket.put_object(Body=img_data, ContentType='image/png', Key=png_name)
+            object_acl = s3.ObjectAcl(env("DJANGO_AWS_STORAGE_BUCKET_NAME"),png_name)
+            response = object_acl.put(ACL='public-read')
         else:
             fileName = "pulsemanager/static/images/{key}".format(key=png_name)
             plt.savefig(fileName, bbox_inches='tight')
