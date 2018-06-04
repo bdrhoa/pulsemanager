@@ -35,7 +35,7 @@ from datetime import datetime
 
 class Session(object):
     """ Session to remote LimeSurvey_ servers.
-    
+
     Persists authentication and other settings while accessing LimeSurvey_
     servers using the `RemoteControl 2 API`_.
 
@@ -183,7 +183,7 @@ class Session(object):
         request = self._request('release_session_key', [key])
         logging.info('LSRC2 release session key: {0}'.format(key))
         response, error = self._post(request)  # returns ('OK', None) even if bogus key
-    
+
     def surveys(self):
         """Call `list_surveys`_
 
@@ -200,7 +200,7 @@ class Session(object):
         .. _list_surveys: http://api.limesurvey.org/classes/remotecontrol_handle.html#method_list_surveys
 
         """
-        
+
 
         request = self._request('list_surveys', [self.key])
         return self._post(request)
@@ -261,27 +261,27 @@ class Session(object):
             responses = []
 
         return responses, error
-    
+
     def hope(self):
         print('hope')
         return True
-    
+
     def copy_survey(self, originalSurveyID, newSurveyName):
-            
+
         logger = logging.getLogger()
         handler = logging.StreamHandler()
         formatter = logging.Formatter(
             '%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
         handler.setFormatter(formatter)
         logger.addHandler(handler)
-        logger.setLevel(logging.DEBUG)
-        
-        
+        logger.setLevel(logging.ERROR)
+
+
         logger.debug('*** lsrc2 start copy_limesurvey ***')
         request = self._request('copy_survey',
                                 [self.key,originalSurveyID, newSurveyName ])
         new_survey =  self._post(request)
-        
+
         logger.debug('the survy: %s', new_survey[0]['newsid'])
         logger.debug('*** end lsrc2 copy_limesurvey ***')
         return new_survey[0]['newsid']
@@ -290,15 +290,15 @@ class Session(object):
         request = self._request('activate_survey',
                                 [self.key,surveyToActivate ])
         return self._post(request)
-    #TODO: handle connection problems, etc    
+    #TODO: handle connection problems, etc
 
     def expire_survey(self, surveyToExpire,expireDatetime=datetime.now().strftime('%Y-%m-%d %H:%M:%S')):
-        
+
         request = self._request('set_survey_properties',[self.key,surveyToExpire,{'expires': expireDatetime}])
 
         return self._post(request)
 
-    #TODO: handle connection problems, etc 
+    #TODO: handle connection problems, etc
 
     def export_responses(self, surveyToExport):
         request = self._request('export_responses',

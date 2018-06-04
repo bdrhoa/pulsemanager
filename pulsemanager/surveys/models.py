@@ -63,7 +63,7 @@ class Survey(models.Model):
             '%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
         handler.setFormatter(formatter)
         logger.addHandler(handler)
-        logger.setLevel(logging.DEBUG)
+        logger.setLevel(logging.ERROR)
 
         lssession = lsrc.Session(LS_URL, LS_USERNAME, LS_PASSWORD)
 
@@ -199,6 +199,8 @@ class Survey(models.Model):
             fileName = "pulsemanager/static/images/{key}".format(key=png_name)
             plt.savefig(fileName, bbox_inches='tight')
 
+        plt.close('all')
+
     def radargraph(self,cat, values):
         # Plots a radar chart.
 
@@ -293,6 +295,8 @@ class Survey(models.Model):
         else:
             fileName = "pulsemanager/static/images/{key}".format(key=png_name)
             plt.savefig(fileName, bbox_inches='tight')
+
+        plt.close('all')
 
     def createreport(self):
         '''Create the PDF report for the church'''
