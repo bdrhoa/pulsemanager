@@ -169,7 +169,7 @@ class Survey(models.Model):
 
         index = np.arange(len(categories))
         fig, ax = plt.subplots()
-        rects1 = ax.bar(index, values, color='b')
+        rects1 = ax.bar(index, values, color='cyan')
         plt.axhline(6, color="green", linewidth=5)
         plt.axhline(2, color="red", linewidth=5)
         plt.xlabel(xlabel, fontsize=5)
@@ -250,7 +250,7 @@ class Survey(models.Model):
         ax.plot(x_as, values, linewidth=0, linestyle='solid', zorder=3)
 
         # Fill area
-        ax.fill(x_as, values, 'b', alpha=0.3)
+        ax.fill(x_as, values, 'b', alpha=0.3, color='cyan')
 
 
         # Set axes limits
