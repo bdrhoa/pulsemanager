@@ -52,8 +52,7 @@ class Survey(models.Model):
 
 
     def copy_limesurvey(self):
-        ''' Copy the base Limesurvey survey and return the new id and name.
-            just stubbed for now '''
+        ''' Make a copy of survey LS_BASESURVEY_ID '''
 
         import pulsemanager.lsrc3.session as lsrc
 
@@ -352,12 +351,12 @@ class Survey(models.Model):
 
         self.barchart(categories, barchartdata, "EVANGELISM", "Question", "Average")
 
-        #DISIPLESHIP
+        #DISCIPLESHIP
         barchartdata = [reportdata['q7[edu1]'] -1, reportdata['q7[edu2]'] -1, reportdata['q7[edu3]'] -1,
             reportdata['q7[edu4]'] -1, reportdata['q7[edu5]'] -1, reportdata['q7[edu6]'] -1,
             reportdata['q7[edu7]'] -1]
 
-        self.barchart(categories, barchartdata, "DISIPLESHIP", "Question", "Average")
+        self.barchart(categories, barchartdata, "DISCIPLESHIP", "Question", "Average")
 
         #SERVICE
         barchartdata = [reportdata['q8[ser1]'] -1, reportdata['q8[ser2]'] -1, reportdata['q8[ser3]'] -1,
