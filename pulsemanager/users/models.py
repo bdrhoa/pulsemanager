@@ -258,7 +258,7 @@ COUNTRIES = (
 class CountryField(models.CharField):
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('max_length', 2)
-        kwargs.setdefault('choices', COUNTRIES)
+        kwargs.setdefault('choices', sorted(COUNTRIES, key=lambda c:c[1]))
 
         super(CountryField, self).__init__(*args, **kwargs)
 
@@ -323,10 +323,10 @@ class User(AbstractUser):
     name = models.CharField(_('Name of User'), blank=False, max_length=255)
     churchname = models.CharField(_('Name of Church'), blank=False, max_length=255)
     acitvesurvey = models.BooleanField(_('Is Survey Active'), default=True) #just for toggle switch in UI
-    country = CountryField()
-    language = LanguageField()
-    hierarchy = HierarchyField()
-    denomination = DenominationField()
+    country = CountryField(_('Country'))
+    language = LanguageField(_('Language'))
+    hierarchy = HierarchyField(_('Hierarchy'))
+    denomination = DenominationField(_('Denomication'))
 
     def __str__(self):
         return self.username

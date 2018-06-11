@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}User: {{ object.username }}{% endblock %}
 
@@ -34,11 +35,11 @@
         <p>{{object.language.as_p}}</p>
       {% endif %}
       <p>
-      <input type="checkbox" onclick="return false" readonly value ={{object.acitvesurvey}} {% if object.acitvesurvey %} checked="checked" {% endif %}  data-toggle="toggle" data-on="Active" data-off="Not Active" data-onstyle="success" data-offstyle="danger">
+      <input type="checkbox" onclick="return false" readonly value ={{object.acitvesurvey}} {% if object.acitvesurvey %} checked="checked" {% endif %}  data-toggle="toggle" data-on="{% trans 'Active' %}" data-off="{% trans 'Not Active' %}" data-onstyle="success" data-offstyle="danger">
       <br>
-      <a href="https://tycp.online/index.php/{{ object.get_surveyid }}?lang=en" target="_blank">TYCP English</a>
+      <a href="https://tycp.online/index.php/{{ object.get_surveyid }}?lang=en" target="_blank">TYCP {% trans _('English') %}</a>
       <br>
-      <a href="https://tycp.online/index.php/{{ object.get_surveyid }}?lang=es" target="_blank">TYCP Spanish</a>
+      <a href="https://tycp.online/index.php/{{ object.get_surveyid }}?lang=es" target="_blank">TYCP {% trans _('Spanish') %}</a>
      </p>
     </div>
   </div>
@@ -48,10 +49,10 @@
 <div class="row">
 
   <div class="col-sm-12">
-    <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">My Info</a>
-    <a class="btn btn-primary" href="{% url 'account_email' %}" role="button">E-Mail</a>
+    <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">{% trans 'My Info' %}</a>
+    <a class="btn btn-primary" href="{% url 'account_email' %}" role="button">{% trans 'E-Mail' %}</a>
     <!-- Your Stuff: Custom user template urls -->
-    <a class="btn btn-primary" href="{% url 'users:report' %}"  target='_blank' role="button">Report</a>
+    <a class="btn btn-primary" href="{% url 'users:report' %}"  target='_blank' role="button">{% trans 'Report'%}</a>
 
   </div>
 

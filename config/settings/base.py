@@ -8,6 +8,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
 import environ
+import os
 
 ROOT_DIR = environ.Path(__file__) - 3  # (pulsemanager/config/settings/base.py - 3 = pulsemanager/)
 APPS_DIR = ROOT_DIR.path('pulsemanager')
@@ -72,11 +73,13 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 # MIGRATIONS CONFIGURATION
@@ -144,6 +147,25 @@ USE_L10N = True
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
 USE_TZ = True
+
+#LOCALE_PATHS = (
+#    '/Users/bradrhoads/Dropbox/Documents/src/MAF/MMN/pulsemanager/locale',
+#    os.path.join(os.path.dirname(__file__), "locale"),
+#)
+
+LOCALE_PATHS = (
+    os.path.abspath(
+        os.path.join(
+            os.path.dirname(__file__),
+                '../..', "locale")),
+)
+
+#LANGUAGE = 'es'
+
+LANGUAGES = (
+    ('en', 'English'),
+    ('es', 'Spanish'),
+)
 
 # TEMPLATE CONFIGURATION
 # ------------------------------------------------------------------------------

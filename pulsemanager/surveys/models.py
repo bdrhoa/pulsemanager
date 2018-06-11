@@ -171,14 +171,15 @@ class Survey(models.Model):
         rects1 = ax.bar(index, values, color='cyan')
         plt.axhline(6, color="green", linewidth=5)
         plt.axhline(2, color="red", linewidth=5)
-        plt.xlabel(xlabel, fontsize=5)
-        plt.ylabel(ylabel, fontsize=5)
+        plt.xlabel(_(xlabel), fontsize=5)
+        plt.ylabel(_(ylabel), fontsize=5)
         plt.xticks(index, categories, fontsize=5, rotation=30)
         pos = arange(10)+.05
         plt.yticks(pos,( '1','2','3','4','5','6','7','8','9','10'))
-        plt.title(title)
+        plt.title(_(title))
         self.autolabel(rects1, ax)
 
+        #files names always use english
         png_name = "{surveyid}_{title}.png".format(surveyid =self.surveyid,
                         title=title.lower())
         #TODO: use djang_storages instead of boto3 directly
@@ -308,19 +309,25 @@ class Survey(models.Model):
 
         categories = ['1','2','3','4','5','6','7']
 
+        x_value_label = 'Question'
+        y_value_label = 'Average'
+
         #VISION
         barchartdata = [reportdata['q1[vis1]'] -1, reportdata['q1[vis2]'] -1, reportdata['q1[vis3]'] -1,
             reportdata['q1[vis4]'] -1, reportdata['q1[vis5]'] -1, reportdata['q1[vis6]'] -1,
             reportdata['q1[vis7]'] -1]
 
-        self.barchart(categories, barchartdata, "VISION", "Question", "Average")
+        chart_title = 'VISION'
+
+        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
         #LEADERSHIP
         barchartdata = [reportdata['q2[lea1]'] -1, reportdata['q2[lea2]'] -1, reportdata['q2[lea3]'] -1,
             reportdata['q2[lea4]'] -1, reportdata['q2[lea5]'] -1, reportdata['q2[lea6]'] -1,
             reportdata['q2[lea7]'] -1]
 
-        self.barchart(categories, barchartdata, "LEADERSHIP", "Question", "Average")
+        chart_title = 'LEADERSHIP'
+        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
 
         #MOBILIZATION
@@ -328,61 +335,69 @@ class Survey(models.Model):
             reportdata['q3[bod4]'] -1, reportdata['q3[bod5]'] -1, reportdata['q3[bod6]'] -1,
             reportdata['q3[bod7]'] -1]
 
-        self.barchart(categories, barchartdata, "MOBILIZATION", "Question", "Average")
+        chart_title = 'MOBILIZATION'
+        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
         #STEWARDSHIP
         barchartdata = [reportdata['q4[res1]'] -1, reportdata['q4[res2]'] -1, reportdata['q4[res3]'] -1,
             reportdata['q4[res4]'] -1, reportdata['q4[res5]'] -1, reportdata['q4[res6]'] -1,
             reportdata['q4[res7]'] -1]
 
-        self.barchart(categories, barchartdata, "STEWARDSHIP", "Question", "Average")
+        chart_title = 'STEWARDSHIP'
+        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
         #CONTEXT
         barchartdata = [reportdata['q5[con1]'] -1, reportdata['q5[con2]'] -1, reportdata['q5[con3]'] -1,
             reportdata['q5[con4]'] -1, reportdata['q5[con5]'] -1, reportdata['q5[con6]'] -1,
             reportdata['q5[con7]'] -1]
 
-        self.barchart(categories, barchartdata, "CONTEXT", "Question", "Average")
+        chart_title = 'CONTEXT'
+        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
         #EVANGELISM
         barchartdata = [reportdata['q6[eva1]'] -1, reportdata['q6[eva2]'] -1, reportdata['q6[eva3]'] -1,
             reportdata['q6[eva4]'] -1, reportdata['q6[eva5]'] -1, reportdata['q6[eva6]'] -1,
             reportdata['q6[eva7]'] -1]
 
-        self.barchart(categories, barchartdata, "EVANGELISM", "Question", "Average")
+        chart_title = 'EVANGELISM'
+        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
         #DISCIPLESHIP
         barchartdata = [reportdata['q7[edu1]'] -1, reportdata['q7[edu2]'] -1, reportdata['q7[edu3]'] -1,
             reportdata['q7[edu4]'] -1, reportdata['q7[edu5]'] -1, reportdata['q7[edu6]'] -1,
             reportdata['q7[edu7]'] -1]
 
-        self.barchart(categories, barchartdata, "DISCIPLESHIP", "Question", "Average")
+        chart_title = 'DISCIPLESHIP'
+        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
         #SERVICE
         barchartdata = [reportdata['q8[ser1]'] -1, reportdata['q8[ser2]'] -1, reportdata['q8[ser3]'] -1,
             reportdata['q8[ser4]'] -1, reportdata['q8[ser5]'] -1, reportdata['q8[ser6]'] -1,
             reportdata['q8[ser7]'] -1]
 
-        self.barchart(categories, barchartdata, "SERVICE", "Question", "Average")
+        chart_title = 'SERVICE'
+        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
         #FELLOWSHIP
         barchartdata = [reportdata['q9[fel1]'] -1, reportdata['q9[fel2]'] -1, reportdata['q9[fel3]'] -1,
             reportdata['q9[fel4]'] -1, reportdata['q9[fel5]'] -1, reportdata['q9[fel6]'] -1,
             reportdata['q9[fel7]'] -1]
 
-        self.barchart(categories, barchartdata, "FELLOWSHIP", "Question", "Average")
+        chart_title = 'FELLOWSHIP'
+        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
         #WORSHIP
         barchartdata = [reportdata['q10[wor1]'] -1, reportdata['q10[wor2]'] -1, reportdata['q10[wor3]'] -1,
             reportdata['q10[wor4]'] -1, reportdata['q10[wor5]'] -1, reportdata['q10[wor6]'] -1,
             reportdata['q10[wor7]'] -1]
 
-        self.barchart(categories, barchartdata, "WORSHIP", "Question", "Average")
+        chart_title = 'WORSHIP'
+        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
         #CATEGORY
-        categories = ['Vision','Leadership','Mobilization', \
-        'Stewardship','Context','Evangelism','Discipleship', \
-        'Service','Fellowship','Worship']
+        categories = [_('Vision'),_('Leadership'),_('Mobilization'), \
+        _('Stewardship'),_('Context'),_('Evangelism'),_('Discipleship'), \
+        _('Service'),_('Fellowship'),_('Worship')]
 
         barchartdata = [reportdata['q1tot']/7 -1, reportdata['q2tot']/7 -1, \
                     reportdata['q3tot']/7 -1, reportdata['q4tot']/7 -1, \
@@ -390,7 +405,7 @@ class Survey(models.Model):
                     reportdata['q7tot']/7 -1, reportdata['q8tot']/7 -1, \
                     reportdata['q9tot']/7 -1, reportdata['q10tot']/7 -1]
 
-        self.barchart(categories, barchartdata, "CATEGORY", "", "Average")
+        self.barchart(categories, barchartdata, _('CATEGORY'), "", _('Average'))
 
         #RADAR CHART
          # normalize the data based on a max of 70 possilbe "points". This makes the graph spread accross 5 groups of 20
