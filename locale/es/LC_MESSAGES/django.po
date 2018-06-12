@@ -403,7 +403,7 @@ msgid "Church"
 msgstr "Iglesia"
 
 #: pulsemanager/templates/users/reports/rptemplate/report.html:1970
-msgid "Take Your Church's' Pulse"
+msgid "Take Your Church's Pulse"
 msgstr "TÓMELE EL PULSO A SU IGLESIA"
 
 #: pulsemanager/templates/users/reports/rptemplate/report.html:1975
