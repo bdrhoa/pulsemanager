@@ -1,6 +1,10 @@
 from test_plus.test import TestCase
 
-from ..admin import MyUserCreationForm
+from config.settings.base import AUTH_USER_MODEL
+
+from pulsemanager.users.admin import MyUserCreationForm
+
+#from ..admin import MyUserCreationForm
 
 
 class TestMyUserCreationForm(TestCase):

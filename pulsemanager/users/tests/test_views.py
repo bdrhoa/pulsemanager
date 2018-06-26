@@ -2,10 +2,8 @@ from django.test import RequestFactory
 
 from test_plus.test import TestCase
 
-from ..views import (
-    UserRedirectView,
-    UserUpdateView
-)
+from pulsemanager.users.views import UserRedirectView
+from pulsemanager.users.views import UserUpdateView
 
 
 class BaseUserTestCase(TestCase):
