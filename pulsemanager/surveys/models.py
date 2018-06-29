@@ -38,7 +38,8 @@ class Survey(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     surveyid = models.IntegerField(_('Survey ID'), primary_key=True, default=0)
-    surveyname = models.CharField(_('Name of Survey'), blank=True, max_length=255)
+    surveyname = models.CharField(_('Name of Survey'), blank=True,
+        max_length=255, default='surveyname')
     issurveyactive = models.BooleanField(_('Is Survey Active'), default=True)
     user = models.ForeignKey(user_models.User,
             related_name='surveys',
