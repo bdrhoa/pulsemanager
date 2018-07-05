@@ -83,14 +83,20 @@ class Survey(models.Model):
         lssession.expire_survey(self.surveyid)
         lssession.close()
 
-    def get_data(self):
-        '''Get the survey data from limesurvey'''
+    def _get_ls_data(self):
+        '''Get the survey raw data from limesurvey'''
 
         import pulsemanager.lsrc3.session as lsrc
-
         lssession = lsrc.Session(LS_URL, LS_USERNAME, LS_PASSWORD)
-
         data = lssession.export_responses(self.surveyid)
+        lssession.close()
+        return data
+
+
+    def get_data(self):
+        '''Get the final survey data'''
+
+        data = self._get_ls_data()
 
         try:
             sdata= base64.b64decode(data[0])
@@ -128,8 +134,6 @@ class Survey(models.Model):
 
         df['q10tot'] = df['q10[wor1]'] + df['q10[wor2]'] + df['q10[wor3]'] + \
             df['q10[wor4]'] + df['q10[wor5]'] + df['q10[wor6]'] +  df['q10[wor7]']
-
-        lssession.close()
 
         #Get rid of non-numeric fields.
         df = df.drop(['id', 'lastpage', 'seed', 'AgeGroup', 'Gender', \
