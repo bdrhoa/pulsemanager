@@ -152,3 +152,12 @@ coverage_html_report/pulsemanager_users_urls_py.html
 coverage_html_report/pulsemanager_users_views_py.html
 coverage_html_report/status.json
 coverage_html_report/style.css
+.pytest_cache/v/cache/lastfailed
+.pytest_cache/v/cache/nodeids
+pulsemanager/.DS_Store
+.vscode/settings.json
+.vscode/settings.json
+pulsemanager/.DS_Store
+pulsemanager/templates/.DS_Store
+pulsemanager/templates/.DS_Store
+pulsemanager/.DS_Store
