@@ -2046,7 +2046,7 @@ msgid "Hierarchy"
 msgstr "Jerarquía"
 
 #: pulsemanager/users/models.py:329
-msgid "Denomication"
+msgid "Denomination"
 msgstr "Denominación"
 
 #~ msgid "VISION"

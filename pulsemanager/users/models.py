@@ -326,7 +326,7 @@ class User(AbstractUser):
     country = CountryField(_('Country'))
     language = LanguageField(_('Language'))
     hierarchy = HierarchyField(_('Hierarchy'))
-    denomination = DenominationField(_('Denomication'))
+    denomination = DenominationField(_('Denomination'))
 
     def __str__(self):
         return self.username
