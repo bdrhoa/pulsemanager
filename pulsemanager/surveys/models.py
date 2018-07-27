@@ -317,110 +317,112 @@ class Survey(models.Model):
         x_value_label = 'Question'
         y_value_label = 'Average'
 
-        #VISION
-        barchartdata = [reportdata['q1[vis1]'] -1, reportdata['q1[vis2]'] -1, reportdata['q1[vis3]'] -1,
-            reportdata['q1[vis4]'] -1, reportdata['q1[vis5]'] -1, reportdata['q1[vis6]'] -1,
-            reportdata['q1[vis7]'] -1]
+        try:
+            #VISION
+            barchartdata = [reportdata['q1[vis1]'] -1, reportdata['q1[vis2]'] -1, reportdata['q1[vis3]'] -1,
+                reportdata['q1[vis4]'] -1, reportdata['q1[vis5]'] -1, reportdata['q1[vis6]'] -1,
+                reportdata['q1[vis7]'] -1]
 
-        chart_title = 'VISION'
+            chart_title = 'VISION'
 
-        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
+            self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
-        #LEADERSHIP
-        barchartdata = [reportdata['q2[lea1]'] -1, reportdata['q2[lea2]'] -1, reportdata['q2[lea3]'] -1,
-            reportdata['q2[lea4]'] -1, reportdata['q2[lea5]'] -1, reportdata['q2[lea6]'] -1,
-            reportdata['q2[lea7]'] -1]
+            #LEADERSHIP
+            barchartdata = [reportdata['q2[lea1]'] -1, reportdata['q2[lea2]'] -1, reportdata['q2[lea3]'] -1,
+                reportdata['q2[lea4]'] -1, reportdata['q2[lea5]'] -1, reportdata['q2[lea6]'] -1,
+                reportdata['q2[lea7]'] -1]
 
-        chart_title = 'LEADERSHIP'
-        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
+            chart_title = 'LEADERSHIP'
+            self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
 
-        #MOBILIZATION
-        barchartdata = [reportdata['q3[bod1]'] -1, reportdata['q3[bod2]'] -1, reportdata['q3[bod3]'] -1,
-            reportdata['q3[bod4]'] -1, reportdata['q3[bod5]'] -1, reportdata['q3[bod6]'] -1,
-            reportdata['q3[bod7]'] -1]
+            #MOBILIZATION
+            barchartdata = [reportdata['q3[bod1]'] -1, reportdata['q3[bod2]'] -1, reportdata['q3[bod3]'] -1,
+                reportdata['q3[bod4]'] -1, reportdata['q3[bod5]'] -1, reportdata['q3[bod6]'] -1,
+                reportdata['q3[bod7]'] -1]
 
-        chart_title = 'MOBILIZATION'
-        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
+            chart_title = 'MOBILIZATION'
+            self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
-        #STEWARDSHIP
-        barchartdata = [reportdata['q4[res1]'] -1, reportdata['q4[res2]'] -1, reportdata['q4[res3]'] -1,
-            reportdata['q4[res4]'] -1, reportdata['q4[res5]'] -1, reportdata['q4[res6]'] -1,
-            reportdata['q4[res7]'] -1]
+            #STEWARDSHIP
+            barchartdata = [reportdata['q4[res1]'] -1, reportdata['q4[res2]'] -1, reportdata['q4[res3]'] -1,
+                reportdata['q4[res4]'] -1, reportdata['q4[res5]'] -1, reportdata['q4[res6]'] -1,
+                reportdata['q4[res7]'] -1]
 
-        chart_title = 'STEWARDSHIP'
-        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
+            chart_title = 'STEWARDSHIP'
+            self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
-        #CONTEXT
-        barchartdata = [reportdata['q5[con1]'] -1, reportdata['q5[con2]'] -1, reportdata['q5[con3]'] -1,
-            reportdata['q5[con4]'] -1, reportdata['q5[con5]'] -1, reportdata['q5[con6]'] -1,
-            reportdata['q5[con7]'] -1]
+            #CONTEXT
+            barchartdata = [reportdata['q5[con1]'] -1, reportdata['q5[con2]'] -1, reportdata['q5[con3]'] -1,
+                reportdata['q5[con4]'] -1, reportdata['q5[con5]'] -1, reportdata['q5[con6]'] -1,
+                reportdata['q5[con7]'] -1]
 
-        chart_title = 'CONTEXT'
-        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
+            chart_title = 'CONTEXT'
+            self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
-        #EVANGELISM
-        barchartdata = [reportdata['q6[eva1]'] -1, reportdata['q6[eva2]'] -1, reportdata['q6[eva3]'] -1,
-            reportdata['q6[eva4]'] -1, reportdata['q6[eva5]'] -1, reportdata['q6[eva6]'] -1,
-            reportdata['q6[eva7]'] -1]
+            #EVANGELISM
+            barchartdata = [reportdata['q6[eva1]'] -1, reportdata['q6[eva2]'] -1, reportdata['q6[eva3]'] -1,
+                reportdata['q6[eva4]'] -1, reportdata['q6[eva5]'] -1, reportdata['q6[eva6]'] -1,
+                reportdata['q6[eva7]'] -1]
 
-        chart_title = 'EVANGELISM'
-        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
+            chart_title = 'EVANGELISM'
+            self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
-        #DISCIPLESHIP
-        barchartdata = [reportdata['q7[edu1]'] -1, reportdata['q7[edu2]'] -1, reportdata['q7[edu3]'] -1,
-            reportdata['q7[edu4]'] -1, reportdata['q7[edu5]'] -1, reportdata['q7[edu6]'] -1,
-            reportdata['q7[edu7]'] -1]
+            #DISCIPLESHIP
+            barchartdata = [reportdata['q7[edu1]'] -1, reportdata['q7[edu2]'] -1, reportdata['q7[edu3]'] -1,
+                reportdata['q7[edu4]'] -1, reportdata['q7[edu5]'] -1, reportdata['q7[edu6]'] -1,
+                reportdata['q7[edu7]'] -1]
 
-        chart_title = 'DISCIPLESHIP'
-        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
+            chart_title = 'DISCIPLESHIP'
+            self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
-        #SERVICE
-        barchartdata = [reportdata['q8[ser1]'] -1, reportdata['q8[ser2]'] -1, reportdata['q8[ser3]'] -1,
-            reportdata['q8[ser4]'] -1, reportdata['q8[ser5]'] -1, reportdata['q8[ser6]'] -1,
-            reportdata['q8[ser7]'] -1]
+            #SERVICE
+            barchartdata = [reportdata['q8[ser1]'] -1, reportdata['q8[ser2]'] -1, reportdata['q8[ser3]'] -1,
+                reportdata['q8[ser4]'] -1, reportdata['q8[ser5]'] -1, reportdata['q8[ser6]'] -1,
+                reportdata['q8[ser7]'] -1]
 
-        chart_title = 'SERVICE'
-        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
+            chart_title = 'SERVICE'
+            self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
-        #FELLOWSHIP
-        barchartdata = [reportdata['q9[fel1]'] -1, reportdata['q9[fel2]'] -1, reportdata['q9[fel3]'] -1,
-            reportdata['q9[fel4]'] -1, reportdata['q9[fel5]'] -1, reportdata['q9[fel6]'] -1,
-            reportdata['q9[fel7]'] -1]
+            #FELLOWSHIP
+            barchartdata = [reportdata['q9[fel1]'] -1, reportdata['q9[fel2]'] -1, reportdata['q9[fel3]'] -1,
+                reportdata['q9[fel4]'] -1, reportdata['q9[fel5]'] -1, reportdata['q9[fel6]'] -1,
+                reportdata['q9[fel7]'] -1]
 
-        chart_title = 'FELLOWSHIP'
-        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
+            chart_title = 'FELLOWSHIP'
+            self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
-        #WORSHIP
-        barchartdata = [reportdata['q10[wor1]'] -1, reportdata['q10[wor2]'] -1, reportdata['q10[wor3]'] -1,
-            reportdata['q10[wor4]'] -1, reportdata['q10[wor5]'] -1, reportdata['q10[wor6]'] -1,
-            reportdata['q10[wor7]'] -1]
+            #WORSHIP
+            barchartdata = [reportdata['q10[wor1]'] -1, reportdata['q10[wor2]'] -1, reportdata['q10[wor3]'] -1,
+                reportdata['q10[wor4]'] -1, reportdata['q10[wor5]'] -1, reportdata['q10[wor6]'] -1,
+                reportdata['q10[wor7]'] -1]
 
-        chart_title = 'WORSHIP'
-        self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
+            chart_title = 'WORSHIP'
+            self.barchart(categories, barchartdata, chart_title, x_value_label, y_value_label)
 
-        #CATEGORY
-        categories = [_('Vision'),_('Leadership'),_('Mobilization'), \
-        _('Stewardship'),_('Context'),_('Evangelism'),_('Discipleship'), \
-        _('Service'),_('Fellowship'),_('Worship')]
+            #CATEGORY
+            categories = [_('Vision'),_('Leadership'),_('Mobilization'), \
+            _('Stewardship'),_('Context'),_('Evangelism'),_('Discipleship'), \
+            _('Service'),_('Fellowship'),_('Worship')]
 
-        barchartdata = [reportdata['q1tot']/7 -1, reportdata['q2tot']/7 -1, \
-                    reportdata['q3tot']/7 -1, reportdata['q4tot']/7 -1, \
-                    reportdata['q5tot']/7 -1, reportdata['q6tot']/7 -1, \
-                    reportdata['q7tot']/7 -1, reportdata['q8tot']/7 -1, \
-                    reportdata['q9tot']/7 -1, reportdata['q10tot']/7 -1]
+            barchartdata = [reportdata['q1tot']/7 -1, reportdata['q2tot']/7 -1, \
+                        reportdata['q3tot']/7 -1, reportdata['q4tot']/7 -1, \
+                        reportdata['q5tot']/7 -1, reportdata['q6tot']/7 -1, \
+                        reportdata['q7tot']/7 -1, reportdata['q8tot']/7 -1, \
+                        reportdata['q9tot']/7 -1, reportdata['q10tot']/7 -1]
 
-        self.barchart(categories, barchartdata, _('CATEGORY'), "", _('Average'))
+            self.barchart(categories, barchartdata, _('CATEGORY'), "", _('Average'))
 
-        #RADAR CHART
-         # normalize the data based on a max of 70 possilbe "points". This makes the graph spread accross 5 groups of 20
+            #RADAR CHART
+             # normalize the data based on a max of 70 possilbe "points". This makes the graph spread accross 5 groups of 20
 
-        radardata = [int(round(reportdata['q1tot']/70*100,0)), int(round(reportdata['q2tot']/70*100,0)), \
-            int(round(reportdata['q3tot']/70*100,0)), int(round(reportdata['q4tot']/70*100,0)), \
-            int(round(reportdata['q5tot']/70*100,0)), int(round(reportdata['q6tot']/70*100,0)), \
-            int(round(reportdata['q7tot']/70*100,0)), int(round(reportdata['q8tot']/70*100,0)), \
-            int(round(reportdata['q9tot']/70*100,0)), int(round(reportdata['q10tot']/70*100,0))]
+            radardata = [int(round(reportdata['q1tot']/70*100,0)), int(round(reportdata['q2tot']/70*100,0)), \
+                int(round(reportdata['q3tot']/70*100,0)), int(round(reportdata['q4tot']/70*100,0)), \
+                int(round(reportdata['q5tot']/70*100,0)), int(round(reportdata['q6tot']/70*100,0)), \
+                int(round(reportdata['q7tot']/70*100,0)), int(round(reportdata['q8tot']/70*100,0)), \
+                int(round(reportdata['q9tot']/70*100,0)), int(round(reportdata['q10tot']/70*100,0))]
 
-        self.radargraph(categories, radardata)
-
+            self.radargraph(categories, radardata)
+        except:
+            reportdata = pd.DataFrame({'A' : []}) #empty
         return reportdata
