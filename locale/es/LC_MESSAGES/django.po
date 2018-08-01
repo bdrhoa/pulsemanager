@@ -2085,3 +2085,6 @@ msgstr "COMPAÑERISMO"
 
 msgid "WORSHIP"
 msgstr "ADORACIÓN"
+
+msgid "mmn_logo_en.png"
+msgstr "mmn_logo_es.png"
