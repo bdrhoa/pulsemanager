@@ -262,9 +262,6 @@ class Session(object):
 
         return responses, error
 
-    def hope(self):
-        print('hope')
-        return True
 
     def copy_survey(self, originalSurveyID, newSurveyName):
 

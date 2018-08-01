@@ -2053,36 +2053,35 @@ msgstr "Jerarquía"
 msgid "Denomination"
 msgstr "Denominación"
 
-#~ msgid "VISION"
-#~ msgstr "VISIÓN"
+msgid "VISION"
+msgstr "VISIÓN"
 
-#~| msgid "Questions"
-#~ msgid "Question"
-#~ msgstr "Preguntas"
+msgid "Question"
+msgstr "Pregunta"
 
-#~ msgid "LEADERSHIP"
-#~ msgstr "LIDERAZGO"
+msgid "LEADERSHIP"
+msgstr "LIDERAZGO"
 
-#~ msgid "MOBILIZATION"
-#~ msgstr "MOVILIZACIÓN"
+msgid "MOBILIZATION"
+msgstr "MOVILIZACIÓN"
 
-#~ msgid "STEWARDSHIP"
-#~ msgstr "ADMINISTRACIÓN"
+msgid "STEWARDSHIP"
+msgstr "ADMINISTRACIÓN"
 
-#~ msgid "CONTEXT"
-#~ msgstr "CONTEXTO"
+msgid "CONTEXT"
+msgstr "CONTEXTO"
 
-#~ msgid "EVANGELISM"
-#~ msgstr "EVANGELIZACIÓN"
+msgid "EVANGELISM"
+msgstr "EVANGELIZACIÓN"
 
-#~ msgid "DISCIPLESHIP"
-#~ msgstr "DISCIPULADO"
+msgid "DISCIPLESHIP"
+msgstr "DISCIPULADO"
 
-#~ msgid "SERVICE"
-#~ msgstr "SERVICIO"
+msgid "SERVICE"
+msgstr "SERVICIO"
 
-#~ msgid "FELLOWSHIP"
-#~ msgstr "COMPAÑERISMO"
+msgid "FELLOWSHIP"
+msgstr "COMPAÑERISMO"
 
-#~ msgid "WORSHIP"
-#~ msgstr "ADORACIÓN"
+msgid "WORSHIP"
+msgstr "ADORACIÓN"
