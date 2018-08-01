@@ -300,7 +300,7 @@ class UserListView(LoginRequiredMixin, ListView):
 
 class UserReportView(LoginRequiredMixin, TemplateView):
     model = User
-    template_name = 'users/reports/rptemplate/report.html'
+    template_name = 'users/reports/tycpreport/report.html'
     def get_context_data(self, **kwargs):
         theuser = self.request.user
         thesurvey = theuser.get_survey().surveyid

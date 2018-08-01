@@ -28,7 +28,7 @@ urlpatterns = [
         name='update'
     ),
     url(
-        regex=r'^reports/rptemplate/$',
+        regex=r'^reports/tycpreport/$',
         view=views.PDFReportView.as_view(),
         name='report'
     ),
