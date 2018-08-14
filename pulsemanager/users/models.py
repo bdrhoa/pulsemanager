@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.apps import AppConfig
 from django.db.models.signals import pre_save
 from model_utils import FieldTracker
-from languages.fields import LanguageField
+#from languages.fields import LanguageField
 #from .django_countries.fields import CountryField
 #from .django_countries import countries
 
@@ -307,6 +307,21 @@ class DenominationField(models.CharField):
         kwargs.setdefault('choices', DENOMINATIONS)
 
         super(DenominationField, self).__init__(*args, **kwargs)
+
+    def get_internal_type(self):
+        return "CharField"
+
+LANGUAGES = (
+    ("en", _(u"English")),
+    ("es", _(u"Spanish")),
+)
+
+class LanguageField(models.CharField):
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault('max_length', 3)
+        kwargs.setdefault('choices', LANGUAGES)
+
+        super(LanguageField, self).__init__(*args, **kwargs)
 
     def get_internal_type(self):
         return "CharField"
