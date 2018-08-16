@@ -1,1 +1,8 @@
 {% extends "base.html" %}
+
+{% load staticfiles %}
+{% load i18n %}
+
+{% block content %}
+<img src='{{STATIC_URL}}images/{% trans "TCYPPulseManagerHomepage-en.gif" %}' alt="TYCP" class="img-fluid">
+{% endblock %}
