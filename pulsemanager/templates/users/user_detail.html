@@ -2,18 +2,21 @@
 {% load static %}
 {% load i18n %}
 
+{% if object == request.user %}
 {% block title %}User: {{ object.username }}{% endblock %}
+{% endif %}
 
 {% block content %}
 <div class="container">
 
   <div class="row">
     <div class="col-sm-12">
-
+      {% if object == request.user %}
       <h2>{{ object.username }}</h2>
       {% if object.name %}
         <p>{{ object.name }}</p>
       {% endif %}
+
 
       {% if object.churchname %}
         <p>{{ object.churchname }}</p>
@@ -41,6 +44,7 @@
       <br>
       <a href="https://tycp.online/index.php/{{ object.get_surveyid }}?lang=es" target="_blank">TYCP {% trans _('Spanish') %}</a>
      </p>
+     {% endif %}
     </div>
   </div>
 
@@ -49,7 +53,7 @@
 <div class="row">
 
   <div class="col-sm-12">
-    <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">{% trans 'My Info' %}</a>
+    <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">{% trans 'Settings' %}</a>
     <a class="btn btn-primary" href="{% url 'account_email' %}" role="button">{% trans 'E-Mail' %}</a>
     <!-- Your Stuff: Custom user template urls -->
     <a class="btn btn-primary" href="{% url 'users:report' %}"  target='_blank' role="button">{% trans 'Report'%}</a>
