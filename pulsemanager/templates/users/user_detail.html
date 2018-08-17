@@ -10,7 +10,7 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm">
       {% if object == request.user %}
       <h2>{{ object.username }}</h2>
       {% if object.name %}
@@ -38,11 +38,16 @@
         <p>{{object.language.as_p}}</p>
       {% endif %}
       <p>
-      <input type="checkbox" onclick="return false" readonly value ={{object.acitvesurvey}} {% if object.acitvesurvey %} checked="checked" {% endif %}  data-toggle="toggle" data-on="{% trans 'Active' %}" data-off="{% trans 'Not Active' %}" data-onstyle="success" data-offstyle="danger">
+      <input type="checkbox" onclick="return false" disabled
+         value ={{object.acitvesurvey}} {% if object.acitvesurvey %} checked="checked" {% endif %}  data-toggle="toggle" data-on="{% trans 'Active' %}" data-off="{% trans 'Not Active' %}" data-onstyle="success" data-offstyle="danger">
       <br>
-      <a href="https://tycp.online/index.php/{{ object.get_surveyid }}?lang=en" target="_blank">TYCP {% trans _('English') %}</a>
+      <a href="https://tycp.online/index.php/{{ object.get_surveyid }}?lang=en" data-toggle="tooltip" data-placement="right"
+        title="{% trans 'Copy and paste this link into the email sent to Participants in the TYCP diagnostic survey (English)' %}"
+         target="_blank">TYCP {% trans _('English') %}</a>
       <br>
-      <a href="https://tycp.online/index.php/{{ object.get_surveyid }}?lang=es" target="_blank">TYCP {% trans _('Spanish') %}</a>
+      <a href="https://tycp.online/index.php/{{ object.get_surveyid }}?lang=es" data-toggle="tooltip" data-placement="right"
+        title="{% trans 'Copy and paste this link into the email sent to Participants in the TYCP diagnostic survey (Spanish)' %}"
+         target="_blank">TYCP {% trans _('Spanish') %}</a>
      </p>
      {% endif %}
     </div>
@@ -52,11 +57,13 @@
 <!-- Action buttons -->
 <div class="row">
 
-  <div class="col-sm-12">
+  <div class="col-sm">
     <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">{% trans 'Settings' %}</a>
     <a class="btn btn-primary" href="{% url 'account_email' %}" role="button">{% trans 'E-Mail' %}</a>
     <!-- Your Stuff: Custom user template urls -->
-    <a class="btn btn-primary" href="{% url 'users:report' %}"  target='_blank' role="button">{% trans 'Report'%}</a>
+    <a class="btn btn-primary" href="{% url 'users:report' %}" data-toggle="tooltip" data-placement="right"
+      title="{% trans 'The TYCP diagnostic survey report will open in a new window as a .pdf file to be downloaded' %}"
+       target='_blank' role="button">{% trans 'Report'%}</a>
 
   </div>
 
