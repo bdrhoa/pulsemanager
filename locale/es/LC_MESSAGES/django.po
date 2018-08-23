@@ -7,18 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-11 16:02-0600\n"
-"PO-Revision-Date: 2018-06-11 14:38-0600\n"
+"POT-Creation-Date: 2018-08-23 11:56-0600\n"
+"PO-Revision-Date: 2018-08-23 12:21-0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.8\n"
+"X-Generator: Poedit 2.1.1\n"
 
 #: pulsemanager/surveys/models.py:40
-#: pulsemanager/templates/users/reports/rptemplate/report.html:1974
+#: pulsemanager/templates/users/reports/tycpreport/report.html:1973
 msgid "Survey ID"
 msgstr "ID de la encuesta"
 
@@ -26,64 +26,64 @@ msgstr "ID de la encuesta"
 msgid "Name of Survey"
 msgstr "Nombre de la encuesta"
 
-#: pulsemanager/surveys/models.py:42 pulsemanager/users/models.py:325
+#: pulsemanager/surveys/models.py:43 pulsemanager/users/models.py:340
 msgid "Is Survey Active"
 msgstr "Es encuesta activa"
 
-#: pulsemanager/surveys/models.py:398
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2052
+#: pulsemanager/surveys/models.py:404
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2051
 msgid "Vision"
 msgstr "Visión"
 
-#: pulsemanager/surveys/models.py:398
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2087
+#: pulsemanager/surveys/models.py:404
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2086
 msgid "Leadership"
 msgstr "Liderazgo"
 
-#: pulsemanager/surveys/models.py:398
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2124
+#: pulsemanager/surveys/models.py:404
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2123
 msgid "Mobilization"
 msgstr "Movilización"
 
-#: pulsemanager/surveys/models.py:399
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2162
+#: pulsemanager/surveys/models.py:405
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2161
 msgid "Stewardship"
 msgstr "Administración"
 
-#: pulsemanager/surveys/models.py:399
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2198
+#: pulsemanager/surveys/models.py:405
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2197
 msgid "Context"
 msgstr "Contexto"
 
-#: pulsemanager/surveys/models.py:399
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2234
+#: pulsemanager/surveys/models.py:405
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2233
 msgid "Evangelism"
 msgstr "Evangelización"
 
-#: pulsemanager/surveys/models.py:399
+#: pulsemanager/surveys/models.py:405
 msgid "Discipleship"
 msgstr "Discipulado"
 
-#: pulsemanager/surveys/models.py:400
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2306
+#: pulsemanager/surveys/models.py:406
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2305
 msgid "Service"
 msgstr "Servicio"
 
-#: pulsemanager/surveys/models.py:400
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2342
+#: pulsemanager/surveys/models.py:406
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2341
 msgid "Fellowship"
 msgstr "Compañerismo"
 
-#: pulsemanager/surveys/models.py:400
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2378
+#: pulsemanager/surveys/models.py:406
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2377
 msgid "Worship"
 msgstr "Adoración"
 
-#: pulsemanager/surveys/models.py:408
+#: pulsemanager/surveys/models.py:414
 msgid "CATEGORY"
 msgstr "CATEGORY"
 
-#: pulsemanager/surveys/models.py:408
+#: pulsemanager/surveys/models.py:414
 msgid "Average"
 msgstr "Promedio"
 
@@ -384,7 +384,7 @@ msgstr ""
 
 #: pulsemanager/templates/base.html:43
 msgid "Home"
-msgstr "Casa"
+msgstr "Inicio"
 
 #: pulsemanager/templates/base.html:46
 msgid "About"
@@ -392,37 +392,148 @@ msgstr "Sobre"
 
 #: pulsemanager/templates/base.html:51
 msgid "My Profile"
-msgstr "Mi Perfil"
+msgstr "My Profile"
 
 #: pulsemanager/templates/base.html:82
-msgid "Welcome to Pulse Manager"
-msgstr "Bienvenido a Pulse Manager"
+msgid ""
+"<small>Welcome to</small> <big>Taking Your Churche's Pulse</big> "
+"<small>Online Diagnostic Survey</small>"
+msgstr ""
+"<small>Bienvenido a</small> <big>Tómele el Pulso a Su Iglesia </big> "
+"<small>Herramienta de Diagnóstico en Línea</small>"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:1968
-msgid "Church"
-msgstr "Iglesia"
+#: pulsemanager/templates/pages/about.html:6
+msgid ""
+"Multiplication Network Ministries</b> (MNM) is a non-profit organization "
+"that equips leaders with the tools and resources to strengthen and\n"
+"multiply healthy churches. We do this through contextualized training, "
+"providing reproducible materials,\n"
+"even in the most remote places on the planet. Also visit, <a href=\"http://"
+"www.multiplicationnetwork.org\">http://www.multiplicationnetwork.org</a>.\n"
+msgstr ""
+"La Red de Multiplicación</b> es una organización sin fines de lucro que "
+"equipa a los\n"
+"líderes con las herramientas y los recursos para fortalecer y multiplicar "
+"las iglesias saludables. \n"
+"Hacemos esto a través de entrenamiento contextualizado y proporcionando "
+"materiales reproducibles, \n"
+"incluso en los lugares más remotos del planeta. También visite <a "
+"href=“http://www.reddemultiplication.org”>http://www.reddemultiplication."
+"org</a>.\n"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:1970
+#: pulsemanager/templates/pages/about.html:12
+msgid ""
+"<b>MNM</b> provides two initial, foundational ministry platforms. <b>More "
+"Churches</b> is a one-year modular program for church planting where\n"
+"leaders are challenged to plant new churches through practical skills, "
+"biblical training, mentoring and follow-up. <b>Stronger Churches</b>\n"
+"is an ongoing process to strengthen the local church. It includes evaluative "
+"tools to help assess the church's health and vitality,\n"
+"leading to strategic planning, and with God's blessing, the preferred future "
+"of a maturing church."
+msgstr ""
+"<b>La Red</b> tiene dos rutas iniciales de ministerio. <b>Más Iglesias</b> "
+"es un programa modular de un año para la plantación de\n"
+"iglesias saludables donde los líderes tienen el desafío de plantar nuevas "
+"iglesias saludables a través de habilidades prácticas, \n"
+"capacitación bíblica, tutoría y seguimiento. <b>Mejores Iglesias</b> es un "
+"proceso continuo para fortalecer a la iglesia local. \n"
+"Incluye herramientas de evaluaciónpara ayudar a diagnosticar la salud y la "
+"vitalidad de la iglesia local, lo que\n"
+"lleva a la planificación estratégica, y con la bendición de Dios, el futuro "
+"deseadode una iglesia saludables que se multiplique."
+
+#: pulsemanager/templates/pages/about.html:18
+msgid "Take Your Church's Pulse – Book"
+msgstr "Tome el pulso de su iglesia (TPI) - Libro"
+
+#: pulsemanager/templates/pages/about.html:20
+msgid ""
+"\n"
+"The book should be a prerequisite to using the TYCP online diagnostic tool. "
+"It presents Ten Vital Signs of a healthy church— Five Key Commitments\n"
+"and Five Key Functions. It then introduces the reader to a church health "
+"diagnostic tool can be applied to a variety of church and small group "
+"settings.\n"
+"Thousands of pastors and leaders around the world have found this framework "
+"helpful in organizing the ministry and mission of the local church. T\n"
+"he TYCP book and the diagnostic tool it presents are most useful if "
+"accompanied by a robust engagement in conversations.\n"
+"We trust the humble, prayerful, and courageous men and women discussing "
+"these ten vital signs will be led by the Holy Spirit to discern and move\n"
+"toward a blessed future in every local community of faith."
+msgstr ""
+"\n"
+"Presenta diez signos vitales de una iglesia saludable: cinco compromisos "
+"claves y cinco funciones claves. \n"
+"Es una herramienta de diagnóstico de salud de la iglesia que se puede "
+"aplicar a una variedad de entornos de iglesias y grupos pequeños. \n"
+"Miles de pastores y líderes de todo el mundo han encontrado esta herramienta "
+"útil para organizar el ministerio y la misión de la iglesia local. \n"
+"El libro de TPI y la herramienta de diagnóstico forman parte de nuestra ruta "
+"Mejores Iglesias. \n"
+"Son más útiles si van acompañados de un compromiso sólido en las "
+"conversaciones. \n"
+"Confiamos en que los hombres y mujeres discutan estos diez signos vitales "
+"serán guiados por el Espíritu Santo\n"
+"para discernir y avanzar hacia un iglesia saludable en cada comunidad.\n"
+"El libro debe ser un requisito previo para usar la herramienta de "
+"diagnóstico en línea."
+
+#: pulsemanager/templates/pages/about.html:29
+msgid "Take Your Church's Pulse Online Diagnostic Tool"
+msgstr "Tómele el Pulso a Su Iglesia Herramienta de Diagnóstico en Línea"
+
+#: pulsemanager/templates/pages/about.html:31
+msgid ""
+"\n"
+"This church health evaluation tool can help your congregation begin a "
+"process of healthy conversations that will clarify your vision and provide\n"
+"valuable information from the members of your church."
+msgstr ""
+"\n"
+"Esta herramienta es una evaluación de la salud de una iglesia local y puede "
+"ayudar a su congregación a \n"
+"comenzar un proceso de conversaciones saludables que clarifique su visión y "
+"brinde información valiosa de los miembros de su iglesia."
+
+#: pulsemanager/templates/pages/home.html:7
+msgid ""
+"<small>Welcome to</small> <big>Take Your Church's Pulse</big> <small>Online "
+"Diagnostic Survey</small>"
+msgstr ""
+"<small>Bienvenido a</small> <big>Tómele el Pulso a Su Iglesia </big> "
+"<small>Herramienta de Diagnóstico en Línea</small>"
+
+#: pulsemanager/templates/pages/home.html:9
+msgid "TCYPPulseManagerHomepage-en.gif"
+msgstr "TCYPPulseManagerHomepage-es.gif"
+
+#: pulsemanager/templates/users/reports/tycpreport/report.html:1962
+msgid "mmn_logo_en.png"
+msgstr "mmn_logo_es.png"
+
+#: pulsemanager/templates/users/reports/tycpreport/report.html:1967
 msgid "Take Your"
 msgstr "TÓMELE EL PULSO"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:1970
+#: pulsemanager/templates/users/reports/tycpreport/report.html:1969
 msgid "Church's Pulse"
 msgstr "A SU IGLESIA"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:1975
+#: pulsemanager/templates/users/reports/tycpreport/report.html:1974
 msgid "Participants"
 msgstr "Participantes"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2039
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2038
 msgid "INTERPRETING THE RESULTS"
 msgstr "INTERPRETANDO LOS RESULTADOS"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2039
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2038
 msgid "FROM THE TYCP TOOL"
 msgstr "DE LA HERRAMIENTA TYCP"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2041
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2040
 msgid ""
 "To make the information from the survey easy to access and interpret, the "
 "online version has expressed the results graphically. For each vital sign, "
@@ -440,7 +551,7 @@ msgstr ""
 "común, de 1-10, donde 10 representa total acuerdo con la frase descriptiva y "
 "1 representa total desacuerdo con la misma"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2043
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2042
 msgid ""
 "Any scores that fall above a 7, the green line, are a cause for celebration. "
 "While there is always room for improvement, these sections should be "
@@ -452,7 +563,7 @@ msgstr ""
 "fortalezas que pueden ser utilizadas para seguir dando testimonio del Reino "
 "De Dios. Alabe a Dios por estas señales de buena salud"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2045
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2044
 msgid ""
 "For scores that fall between 3 and 7, these areas should be considered for "
 "improvement through healthy conversations with the church leadership. There "
@@ -464,7 +575,7 @@ msgstr ""
 "que existan estrategias simples para mejorar la salud de la Iglesia, o tal "
 "vez requiera conversaciones de discernimiento más profundo"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2047
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2046
 msgid ""
 "Anything that scored a 3 or less, below the red line, is potentially in "
 "crisis. These areas are most likely hurting your church and should be "
@@ -475,102 +586,102 @@ msgstr ""
 "y deberían ser evaluadas para saber cómo mejorar y fortalecer la salud y el "
 "impacto de la iglesia."
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2047
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2046
 msgid "s health"
 msgstr "s salud"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2049
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2048
 msgid "For further guidance, refer to the Introduction to the Take Your Church"
 msgstr ""
 "Para mayor orientación, refiérase a la Introducción al libro Take Your "
 "Church (Lleve su iglesia)."
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2049
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2048
 msgid "s Pulse Tool manual on www.TakeYourChurchsPulse.org"
 msgstr "s Pulse Tool manual en www.TakeYourChurchsPulse.org"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2057
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2091
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2129
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2167
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2203
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2239
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2275
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2311
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2347
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2383
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2419
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2056
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2090
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2128
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2166
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2202
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2238
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2274
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2310
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2346
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2382
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2418
 msgid "Points scored"
 msgstr "Puntos anotados"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2061
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2095
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2133
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2171
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2207
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2243
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2279
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2315
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2351
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2387
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2060
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2094
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2132
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2170
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2206
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2242
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2278
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2314
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2350
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2386
 msgid "Questions"
 msgstr "Preguntas"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2065
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2064
 msgid ""
 "The church leadership gathers every year to evaluate the ministry and plan "
 "for the future"
 msgstr "El liderazgo de la iglesia se reúne cada año para evaluar y planificar"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2068
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2067
 msgid ""
 "Our church has a clear and defined vision to reach the community for Christ"
 msgstr "Nuestra iglesia tiene una visión clara y definida"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2071
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2070
 msgid ""
 "Our church leadership knows where it wants to take the congregation two "
 "years from now"
 msgstr ""
 "El liderazgo de nuestra iglesia sabe dónde estaremos dentro de dos años"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2074
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2073
 msgid ""
 "The pastor and the leaders communicate the vision and direction clearly to "
 "the congregation"
 msgstr ""
 "El pastor y su liderazgo comunican claramente la visión de nuestra iglesia"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2077
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2076
 msgid "I feel inspired by the vision of the church"
 msgstr "Me siento inspirado en la visión de nuestra iglesia"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2080
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2079
 msgid "I know the vision and plan of the church"
 msgstr "Conozco y sé la visión y los planes de la iglesia"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2083
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2082
 msgid "I feel a sense of enthusiasm over the future of our church"
 msgstr "Me siento motivado por el futuro de nuestra iglesia"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2099
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2098
 msgid "The leaders create opportunities for developing new leaders"
 msgstr "El liderazgo crea oportunidades para el desarrollo de nuevos líderes"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2102
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2101
 msgid ""
 "There are leaders being trained and prepared for future positions of "
 "leadership"
 msgstr ""
 "Existen hermanos siendo entrenados y preparados para liderar en el futuro"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2105
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2104
 msgid ""
 "I feel that the leadership circle of the church seeks to reproduce itself "
 "and grow"
 msgstr "Siento que el liderazgo de la iglesia busca crecer y multiplicarse"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2108
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2107
 msgid ""
 "I can identify at least two new leaders who have been developed in the past "
 "year"
@@ -578,35 +689,35 @@ msgstr ""
 "Puedo identificar al menos dos nuevos líderes que fueron entrenados durante "
 "el último año"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2111
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2110
 msgid ""
 "The leaders help and guide those desiring to become active in the church"
 msgstr ""
 "El liderazgo ayuda y guía a aquellos hermanos que desean participar "
 "activamente en la iglesia"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2114
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2113
 msgid "The quality of our leaders in the church is very good"
 msgstr "La calidad y compromiso de nuestro liderazgo es muy bueno"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2117
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2116
 msgid "The leaders are decisive in the direction they want to lead the church"
 msgstr ""
 "El liderazgo es decisivo para la dirección que la iglesia desea tomar en el "
 "futuro"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2137
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2136
 msgid "The church helps members to discover their gifts for ministry"
 msgstr ""
 "La iglesia ayuda a sus miembros a descubrir sus dones para el ministerio"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2140
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2139
 msgid "The church leadership trains members according to their gifts to serve"
 msgstr ""
 "El liderazgo de la iglesia entrena a la membresía según sus dones para el "
 "servicio"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2143
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2142
 msgid ""
 "The church provides clear information to those who would like to serve in "
 "their area of giftedness"
@@ -614,23 +725,23 @@ msgstr ""
 "La iglesia provee información clara a quienes desean servir según sus áreas "
 "de interés y talentos"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2146
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2145
 msgid ""
 "I feel the church has made it possible for me to use my gifts appropriately"
 msgstr ""
 "Siento que la iglesia hace lo posible para que use mis dones apropiadamente"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2149
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2256
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2148
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2255
 msgid "I"
 msgstr "Yo"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2149
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2148
 msgid "ve been trained to serve or lead in the congregation and community"
 msgstr ""
 "He sido entrenado para servir o liderar en la congregación y en la comunidad."
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2152
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2151
 msgid ""
 "There are ample opportunities of service and ministry for those who wish to "
 "get involved"
@@ -638,41 +749,41 @@ msgstr ""
 "Existen amplias oportunidades de servicio y ministerios para aquellos que "
 "desean servir"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2155
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2154
 msgid ""
 "Our ministry structure is functional for mobilizing people into ministry"
 msgstr ""
 "Nuestra estructura ministerial es adecuada para movilizar a las personas "
 "hacia el servicio"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2175
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2174
 msgid ""
 "Our facilities are appropriate for carrying out our calling and ministry"
 msgstr ""
 "Nuestras instalaciones son apropiadas para desarrollar nuestras actividades "
 "de vocación y ministerio"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2178
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2177
 msgid ""
 "Our church practices good stewardship in terms of handling the budget well"
 msgstr ""
 "Nuestra iglesia practica una buena mayordomía manejando bien su presupuesto "
 "y recurso"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2181
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2180
 msgid ""
 "Most people give willingly of their time to serve the church and its ministry"
 msgstr ""
 "Los hermanos dan voluntariamente de su tiempo para servir a la Iglesia y en "
 "sus ministerios"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2184
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2183
 msgid "Our church teaches regularly about stewardship and tithing"
 msgstr ""
 "Me siento motivado a contribuir con recursos para el ministerio de nuestra "
 "iglesia"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2187
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2186
 msgid ""
 "I feel personally motivated to contribute resources to the ministry of our "
 "church"
@@ -680,7 +791,7 @@ msgstr ""
 "Me siento motivado a contribuir con recursos para el ministerio de nuestra "
 "iglesia"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2190
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2189
 msgid ""
 "The leaders keep the members sufficiently informed about the use of the "
 "church"
@@ -688,50 +799,50 @@ msgstr ""
 "El liderazgo informa sobre el uso de las finanzas a la membresía de la "
 "iglesia"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2190
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2189
 msgid "s finances"
 msgstr "s finanzas"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2193
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2192
 msgid "The congregation takes care of the pastor and its leaders"
 msgstr "La congregación cuida del Pastor y sus líderes"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2211
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2210
 msgid "Leaders apply Kingdom values to the daily challenges in the community"
 msgstr "La iglesia vive y practica los valores del Reino en la vida diaria"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2214
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2213
 msgid "The Word of God is the main guide for the leadership of the Church"
 msgstr "La Palabra de Dios es la única guía para nuestra iglesia"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2217
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2216
 msgid "It is evident that the Word of God is used in the church"
 msgstr ""
 "La Palabra de Dios es usada en las reuniones de la iglesia y en sus servicios"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2217
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2216
 msgid "s meetings and services"
 msgstr "s reuniones y servicios"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2220
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2219
 msgid "The Bible guides us in trying to resolve the problems in our community"
 msgstr ""
 "La Biblia nos guía para tratar de resolver los problemas de nuestra comunidad"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2223
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2222
 msgid "Our church is aware of the needs in our social context"
 msgstr "Nuestra iglesia es consciente de las necesidades de nuestra comunidad"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2226
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2225
 msgid "Our church tries hard to build relationships in the community"
 msgstr "Nuestra Iglesia se esfuerza por establecer relaciones con la comunidad"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2229
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2228
 msgid "People see our church as a positive agent of change in our community"
 msgstr ""
 "La gente de nuestra comunidad ve la iglesia como un agente positivo de cambio"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2247
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2246
 msgid ""
 "Our church has a clear plan to reach the community with the Good News of the "
 "Kingdom"
@@ -739,7 +850,7 @@ msgstr ""
 "Nuestra iglesia tiene un plan claro para llegar a la comunidad con las "
 "Buenas Nuevas del Reino"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2250
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2249
 msgid ""
 "Our church is active in building relationships with the unbelievers of our "
 "community"
@@ -747,14 +858,14 @@ msgstr ""
 "Nuestra iglesia tiene como prioridad el hacer relaciones con los no "
 "creyentes de nuestra comunidad"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2253
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2252
 msgid ""
 "Our church trains and equips its members to give witness in the community"
 msgstr ""
 "Nuestra iglesia entrena y equipa a sus miembros para dar testimonio en la "
 "comunidad"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2256
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2255
 msgid ""
 "ve been personally trained to contribute to the evangelistic efforts of the "
 "church"
@@ -762,11 +873,11 @@ msgstr ""
 "han sido entrenados personalmente para contribuir a los esfuerzos "
 "evangelísticos de la iglesia"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2259
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2258
 msgid "I feel personally involved in the evangelistic task of our congregation"
 msgstr "Me siento involucrado en la tarea de evangelismo de nuestra iglesia"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2262
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2261
 msgid ""
 "I can identify new people in our church that came in the past year as a "
 "result of my evangelistic efforts"
@@ -774,15 +885,15 @@ msgstr ""
 "Puedo identificar personas que llegaron a la iglesia el último año debido a "
 "mi invitación y evangelismo"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2265
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2264
 msgid "Our church participates in world mission efforts"
 msgstr "Nuestra iglesia participa y colabora en las misiones mundiales"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2270
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2269
 msgid "Disipleship"
 msgstr "Discipulado"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2283
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2282
 msgid ""
 "The church promotes practices of education and discipleship appropriate to "
 "all ages"
@@ -790,13 +901,13 @@ msgstr ""
 "La iglesia usa programas de educación y discipulado apropiados para todas "
 "las edades"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2286
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2285
 msgid "Our teachers are effective in discipling/teaching our members"
 msgstr ""
 "Nuestros maestros son efectivos en la enseñanza y discipulado de nuestros "
 "miembros"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2289
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2288
 msgid ""
 "When a new person accepts Christ he or she is immediately discipled by "
 "someone"
@@ -804,7 +915,7 @@ msgstr ""
 "Cuando alguna persona acepta a Cristo es inmediatamente discipulada por "
 "alguien"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2292
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2291
 msgid ""
 "As time goes on it becomes increasingly evident that the members live under "
 "the guidance of the Holy Spirit"
@@ -812,31 +923,31 @@ msgstr ""
 "Conforme pasa el tiempo es más evidente que los miembros viven bajo la guía "
 "del Espíritu Santo"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2295
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2294
 msgid "The church is helping me grow spiritually"
 msgstr "La iglesia me ayuda a crecer espiritualmente"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2298
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2297
 msgid "I am a member of a small group that helps me grow spiritually"
 msgstr ""
 "Soy miembro de un grupo pequeño de estudio bíblico y me ha ayudado a crecer "
 "espiritualmente"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2301
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2300
 msgid "Our church promotes a life of prayer"
 msgstr "Nuestra iglesia promueve una vida de oración"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2319
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2318
 msgid "Our church helps people with their physical needs"
 msgstr "Nuestra iglesia cubre las necesidades físicas de quienes lo necesitan"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2322
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2321
 msgid "Our church helps people find work, clothing, and food as necessary"
 msgstr ""
 "Nuestra iglesia ayuda a encontrar trabajo, donar ropa y comida a quienes lo "
 "necesitan"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2325
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2324
 msgid ""
 "Our church provides sufficient training to its members to serve with the "
 "community with its needs"
@@ -844,7 +955,7 @@ msgstr ""
 "Nuestra iglesia ofrece entrenamiento a su membresía para servir a la "
 "comunidad con sus necesidades"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2328
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2327
 msgid ""
 "The church has referral agreements with other organizations that can lend "
 "practical services to those in need"
@@ -852,21 +963,21 @@ msgstr ""
 "Nuestra iglesia tiene acuerdos con otras organizaciones o iglesias para "
 "servir a los más necesitados"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2331
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2330
 msgid "The church provides counseling for people that need it"
 msgstr "Nuestra iglesia provee consejería a quienes lo necesitan"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2334
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2333
 msgid "The people of the community know that we want to demonstrate Christ"
 msgstr ""
 "La comunidad sabe que demostramos el amor de Cristo de una manera práctica, "
 "con acción y servicio"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2334
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2333
 msgid "s love in practical ways"
 msgstr "El amor de Dios de manera práctica"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2337
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2336
 msgid ""
 "The church works together with community leaders to improve the social "
 "context"
@@ -874,7 +985,7 @@ msgstr ""
 "La iglesia trabaja con líderes de la comunidad para mejorar su realidad y "
 "cubrir sus necesidades"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2355
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2354
 msgid ""
 "The ministry of the church helps members grow in friendly relationship with "
 "others"
@@ -882,44 +993,44 @@ msgstr ""
 "Los ministerios de la iglesia permiten a sus miembros crecer en amistad y "
 "relacionarse con otros"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2358
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2357
 msgid "Visitors and new members are intentionally welcomed into the church"
 msgstr ""
 "Visitantes y nuevos miembros reciben una calurosa e intencional bienvenida a "
 "la iglesia."
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2361
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2360
 msgid "When someone visits our church we follow up with them that same week"
 msgstr ""
 "Cuando alguien visita nuestra iglesia recibe seguimiento esa misma semana"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2364
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2363
 msgid ""
 "Our church has good counseling and pastoral care available for members who "
 "need emotional and relational help"
 msgstr "Nuestra iglesia ofrece consejería y cuidado pastoral a sus miembros"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2367
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2366
 msgid "There is a positive fellowship in our church"
 msgstr "En nuestra iglesia existe un compañerismo positivo"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2370
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2369
 msgid "Members gather to share a meal or visit each other regularly"
 msgstr ""
 "Los miembros de nuestra iglesia se visitan o reúnen para compartir una "
 "comida con regularidad"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2373
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2372
 msgid "Conflicts in the congregation are resolved biblically"
 msgstr "Los conflictos en nuestra iglesia son resueltos bíblicamente."
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2391
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2390
 msgid ""
 "The worship in our church nurtures and strengthens us for the Christian life"
 msgstr ""
 "La adoración en nuestra iglesia nos nutre y fortalece nuestra vida cristiana."
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2394
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2393
 msgid ""
 "The music used in services helps the congregation experience the living "
 "presence of God"
@@ -927,25 +1038,25 @@ msgstr ""
 "El estilo de música usado en nuestros servicios permite vivir la presencia "
 "de Dios"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2397
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2396
 msgid "The messages preached are appreciated by the congregation"
 msgstr "La predicación y los mensajes son apreciados por la congregación"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2400
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2399
 msgid "Our worship services attract youth"
 msgstr "Nuestros servicios de adoración atraen a la juventud"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2403
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2402
 msgid "I feel comfortable inviting a friend or relative to Church"
 msgstr "Me siento cómodo invitando a alguien (amigo o familiar) a la iglesia"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2406
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2405
 msgid "Looking at the whole worship experience, I feel satisfied overall"
 msgstr ""
 "Me siento satisfecho, motivado y ministrado con la adoración en nuestra "
 "iglesia"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2409
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2408
 msgid ""
 "In our worship services the triune God is recognized: Father, Son and Holy "
 "Spirit"
@@ -953,39 +1064,65 @@ msgstr ""
 "En nuestros servicios se reconoce la presencia del trino Dios: Padre, Hijo y "
 "Espíritu Santo"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2414
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2413
 msgid "Average Score By Category"
 msgstr "Puntaje promedio por categoría"
 
-#: pulsemanager/templates/users/reports/rptemplate/report.html:2432
+#: pulsemanager/templates/users/reports/tycpreport/report.html:2431
 msgid "Radar Graph"
 msgstr "Gráfico de radar"
 
-#: pulsemanager/templates/users/user_detail.html:38
+#: pulsemanager/templates/users/user_detail.html:42
 msgid "Active"
 msgstr "Activo"
 
-#: pulsemanager/templates/users/user_detail.html:38
+#: pulsemanager/templates/users/user_detail.html:42
 msgid "Not Active"
 msgstr "Inactivo"
 
-#: pulsemanager/templates/users/user_detail.html:40
+#: pulsemanager/templates/users/user_detail.html:45
+msgid ""
+"Copy and paste this link into the email sent to Participants in the TYCP "
+"diagnostic survey (English)"
+msgstr ""
+"Copie y pegue este enlace en el correo electrónico y envíe a los "
+"participantes en la encuesta de diagnóstico TPI (inglés)"
+
+#: pulsemanager/templates/users/user_detail.html:46
+#: pulsemanager/users/models.py:315
 msgid "English"
-msgstr ""
+msgstr "inglés"
 
-#: pulsemanager/templates/users/user_detail.html:42
+#: pulsemanager/templates/users/user_detail.html:49
+msgid ""
+"Copy and paste this link into the email sent to Participants in the TYCP "
+"diagnostic survey (Spanish)"
+msgstr ""
+"Copie y pegue este enlace en el correo electrónico y envíe a los "
+"participantes en la encuesta de diagnóstico TPI (español)"
+
+#: pulsemanager/templates/users/user_detail.html:50
+#: pulsemanager/users/models.py:316
 msgid "Spanish"
-msgstr ""
+msgstr "español"
 
-#: pulsemanager/templates/users/user_detail.html:52
-msgid "My Info"
-msgstr "Mi Info"
+#: pulsemanager/templates/users/user_detail.html:61
+msgid "Settings"
+msgstr "Parametrizaciones"
 
-#: pulsemanager/templates/users/user_detail.html:53
+#: pulsemanager/templates/users/user_detail.html:62
 msgid "E-Mail"
 msgstr "Correo"
 
-#: pulsemanager/templates/users/user_detail.html:55
+#: pulsemanager/templates/users/user_detail.html:65
+msgid ""
+"The TYCP diagnostic survey report will open in a new window as a .pdf file "
+"to be downloaded"
+msgstr ""
+"El informe de la encuesta de diagnóstico TPI se abrirá en una nueva ventana "
+"como un archivo .pdf para descargar"
+
+#: pulsemanager/templates/users/user_detail.html:66
 msgid "Report"
 msgstr "Reporte"
 
@@ -2029,62 +2166,74 @@ msgstr "Wesleyana"
 msgid "Other"
 msgstr "Otros"
 
-#: pulsemanager/users/models.py:323
+#: pulsemanager/users/models.py:338
 msgid "Name of User"
 msgstr "Nombre del usuario"
 
-#: pulsemanager/users/models.py:324
+#: pulsemanager/users/models.py:339
 msgid "Name of Church"
 msgstr "Nombre de la iglesia"
 
-#: pulsemanager/users/models.py:326
+#: pulsemanager/users/models.py:341
 msgid "Country"
 msgstr "País"
 
-#: pulsemanager/users/models.py:327
+#: pulsemanager/users/models.py:342
 msgid "Language"
 msgstr "Idioma"
 
-#: pulsemanager/users/models.py:328
+#: pulsemanager/users/models.py:343
 msgid "Hierarchy"
 msgstr "Jerarquía"
 
-#: pulsemanager/users/models.py:329
+#: pulsemanager/users/models.py:344
 msgid "Denomination"
 msgstr "Denominación"
 
-msgid "VISION"
-msgstr "VISIÓN"
+#~ msgid "Multiplication Network Ministries"
+#~ msgstr "La Red de Multiplicación"
 
-msgid "Question"
-msgstr "Pregunta"
+#~ msgid "'http://www.multiplicationnetwork.org'"
+#~ msgstr "‘http://www.reddemultiplicacion.com’"
 
-msgid "LEADERSHIP"
-msgstr "LIDERAZGO"
+#~ msgid "Welcome to Pulse Manager"
+#~ msgstr "Bienvenido a Pulse Manager"
 
-msgid "MOBILIZATION"
-msgstr "MOVILIZACIÓN"
+#~ msgid "Church"
+#~ msgstr "Iglesia"
 
-msgid "STEWARDSHIP"
-msgstr "ADMINISTRACIÓN"
+#~ msgid "My Info"
+#~ msgstr "Mi Info"
 
-msgid "CONTEXT"
-msgstr "CONTEXTO"
+#~ msgid "VISION"
+#~ msgstr "VISIÓN"
 
-msgid "EVANGELISM"
-msgstr "EVANGELIZACIÓN"
+#~ msgid "Question"
+#~ msgstr "Pregunta"
 
-msgid "DISCIPLESHIP"
-msgstr "DISCIPULADO"
+#~ msgid "LEADERSHIP"
+#~ msgstr "LIDERAZGO"
 
-msgid "SERVICE"
-msgstr "SERVICIO"
+#~ msgid "MOBILIZATION"
+#~ msgstr "MOVILIZACIÓN"
 
-msgid "FELLOWSHIP"
-msgstr "COMPAÑERISMO"
+#~ msgid "STEWARDSHIP"
+#~ msgstr "ADMINISTRACIÓN"
 
-msgid "WORSHIP"
-msgstr "ADORACIÓN"
+#~ msgid "CONTEXT"
+#~ msgstr "CONTEXTO"
 
-msgid "mmn_logo_en.png"
-msgstr "mmn_logo_es.png"
+#~ msgid "EVANGELISM"
+#~ msgstr "EVANGELIZACIÓN"
+
+#~ msgid "DISCIPLESHIP"
+#~ msgstr "DISCIPULADO"
+
+#~ msgid "SERVICE"
+#~ msgstr "SERVICIO"
+
+#~ msgid "FELLOWSHIP"
+#~ msgstr "COMPAÑERISMO"
+
+#~ msgid "WORSHIP"
+#~ msgstr "ADORACIÓN"

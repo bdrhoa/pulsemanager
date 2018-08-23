@@ -1,32 +1,38 @@
 {% extends "base.html" %}
 
+{% load staticfiles %}
+{% load i18n %}
+
 {% block content %}
 <p></p>
 <p>
-<b>Multiplication Network Ministries</b> (MNM) is a non-profit organization that equips leaders with the tools and resources to strengthen and
+<b>{% blocktrans %}Multiplication Network Ministries</b> (MNM) is a non-profit organization that equips leaders with the tools and resources to strengthen and
 multiply healthy churches. We do this through contextualized training, providing reproducible materials,
 even in the most remote places on the planet. Also visit, <a href="http://www.multiplicationnetwork.org">http://www.multiplicationnetwork.org</a>.
+{% endblocktrans %}
 </p>
 <p>
-<b>MNM</b> provides two initial, foundational ministry platforms. <b>More Churches</b> is a one-year modular program for church planting where
+{% blocktrans %}<b>MNM</b> provides two initial, foundational ministry platforms. <b>More Churches</b> is a one-year modular program for church planting where
 leaders are challenged to plant new churches through practical skills, biblical training, mentoring and follow-up. <b>Stronger Churches</b>
 is an ongoing process to strengthen the local church. It includes evaluative tools to help assess the church's health and vitality,
-leading to strategic planning, and with God's blessing, the preferred future of a maturing church.
+leading to strategic planning, and with God's blessing, the preferred future of a maturing church.{% endblocktrans %}
 </p>
 <p>
-<b>Take Your Church's Pulse – Book</b>
+<b>{% trans "Take Your Church's Pulse – Book" %}</b>
 <br>
+{% blocktrans %}
 The book should be a prerequisite to using the TYCP online diagnostic tool. It presents Ten Vital Signs of a healthy church— Five Key Commitments
 and Five Key Functions. It then introduces the reader to a church health diagnostic tool can be applied to a variety of church and small group settings.
 Thousands of pastors and leaders around the world have found this framework helpful in organizing the ministry and mission of the local church. T
 he TYCP book and the diagnostic tool it presents are most useful if accompanied by a robust engagement in conversations.
 We trust the humble, prayerful, and courageous men and women discussing these ten vital signs will be led by the Holy Spirit to discern and move
-toward a blessed future in every local community of faith.
+toward a blessed future in every local community of faith.{% endblocktrans %}
 </p>
 <p>
-<b>Take Your Church's Pulse Online Diagnostic Tool</b>
+<b>{% trans "Take Your Church's Pulse Online Diagnostic Tool" %}</b>
 <br>
+{% blocktrans %}
 This church health evaluation tool can help your congregation begin a process of healthy conversations that will clarify your vision and provide
-valuable information from the members of your church.
+valuable information from the members of your church.{% endblocktrans %}
 </p>
 {% endblock content %}
