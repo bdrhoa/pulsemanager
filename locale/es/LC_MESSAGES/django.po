@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-23 11:56-0600\n"
-"PO-Revision-Date: 2018-08-23 12:21-0600\n"
+"POT-Creation-Date: 2018-08-23 15:01-0600\n"
+"PO-Revision-Date: 2018-08-23 15:03-0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -402,7 +402,7 @@ msgstr ""
 "<small>Bienvenido a</small> <big>Tómele el Pulso a Su Iglesia </big> "
 "<small>Herramienta de Diagnóstico en Línea</small>"
 
-#: pulsemanager/templates/pages/about.html:6
+#: pulsemanager/templates/pages/about.html:9
 msgid ""
 "Multiplication Network Ministries</b> (MNM) is a non-profit organization "
 "that equips leaders with the tools and resources to strengthen and\n"
@@ -418,10 +418,10 @@ msgstr ""
 "Hacemos esto a través de entrenamiento contextualizado y proporcionando "
 "materiales reproducibles, \n"
 "incluso en los lugares más remotos del planeta. También visite <a "
-"href=“http://www.reddemultiplication.org”>http://www.reddemultiplication."
-"org</a>.\n"
+"href='http://www.reddemultiplicacion.com'>http://www.reddemultiplicacion."
+"com</a>.\n"
 
-#: pulsemanager/templates/pages/about.html:12
+#: pulsemanager/templates/pages/about.html:15
 msgid ""
 "<b>MNM</b> provides two initial, foundational ministry platforms. <b>More "
 "Churches</b> is a one-year modular program for church planting where\n"
@@ -443,21 +443,22 @@ msgstr ""
 "lleva a la planificación estratégica, y con la bendición de Dios, el futuro "
 "deseadode una iglesia saludables que se multiplique."
 
-#: pulsemanager/templates/pages/about.html:18
+#: pulsemanager/templates/pages/about.html:21
 msgid "Take Your Church's Pulse – Book"
 msgstr "Tome el pulso de su iglesia (TPI) - Libro"
 
-#: pulsemanager/templates/pages/about.html:20
+#: pulsemanager/templates/pages/about.html:23
 msgid ""
 "\n"
-"The book should be a prerequisite to using the TYCP online diagnostic tool. "
-"It presents Ten Vital Signs of a healthy church— Five Key Commitments\n"
+"The <a href='http://toolbox.multiplicationnetwork.org/'>book<a> should be a "
+"prerequisite to using the TYCP online diagnostic tool. It presents Ten Vital "
+"Signs of a healthy church— Five Key Commitments\n"
 "and Five Key Functions. It then introduces the reader to a church health "
 "diagnostic tool can be applied to a variety of church and small group "
 "settings.\n"
 "Thousands of pastors and leaders around the world have found this framework "
-"helpful in organizing the ministry and mission of the local church. T\n"
-"he TYCP book and the diagnostic tool it presents are most useful if "
+"helpful in organizing the ministry and mission of the local church.\n"
+"The TYCP book and the diagnostic tool it presents are most useful if "
 "accompanied by a robust engagement in conversations.\n"
 "We trust the humble, prayerful, and courageous men and women discussing "
 "these ten vital signs will be led by the Holy Spirit to discern and move\n"
@@ -470,21 +471,21 @@ msgstr ""
 "aplicar a una variedad de entornos de iglesias y grupos pequeños. \n"
 "Miles de pastores y líderes de todo el mundo han encontrado esta herramienta "
 "útil para organizar el ministerio y la misión de la iglesia local. \n"
-"El libro de TPI y la herramienta de diagnóstico forman parte de nuestra ruta "
-"Mejores Iglesias. \n"
+"El <a href=‘http://toolbox.multiplicationnetwork.org/'>libro</a> de TPI y la "
+"herramienta de diagnóstico forman parte de nuestra ruta Mejores Iglesias. \n"
 "Son más útiles si van acompañados de un compromiso sólido en las "
 "conversaciones. \n"
 "Confiamos en que los hombres y mujeres discutan estos diez signos vitales "
 "serán guiados por el Espíritu Santo\n"
 "para discernir y avanzar hacia un iglesia saludable en cada comunidad.\n"
-"El libro debe ser un requisito previo para usar la herramienta de "
-"diagnóstico en línea."
+"El <a href=‘http://toolbox.multiplicationnetwork.org/'>libro</a> debe ser un "
+"requisito previo para usar la herramienta de diagnóstico en línea."
 
-#: pulsemanager/templates/pages/about.html:29
+#: pulsemanager/templates/pages/about.html:32
 msgid "Take Your Church's Pulse Online Diagnostic Tool"
 msgstr "Tómele el Pulso a Su Iglesia Herramienta de Diagnóstico en Línea"
 
-#: pulsemanager/templates/pages/about.html:31
+#: pulsemanager/templates/pages/about.html:34
 msgid ""
 "\n"
 "This church health evaluation tool can help your congregation begin a "
