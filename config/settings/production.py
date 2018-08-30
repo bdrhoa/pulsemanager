@@ -60,8 +60,10 @@ X_FRAME_OPTIONS = 'DENY'
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['pulse.tycp.online', ])
 # END SITE CONFIGURATION
 
-INSTALLED_APPS += ['gunicorn', ]
+INSTALLED_APPS += ['gunicorn',]
 
+# GOOGLE ANALYTICS
+GOOGLE_ANALYTICS_PROPERTY_ID = env('GOOGLE_ANALYTICS_PROPERTY_ID')
 
 # STORAGE CONFIGURATION
 # ------------------------------------------------------------------------------

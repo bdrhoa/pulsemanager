@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 {% load static i18n %}
-
+{% load analytical %}
 <html lang="en">
   <head>
+    {% analytical_head_top %}
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title %}Pulse Manager{% endblock title %}</title>
@@ -25,11 +26,11 @@
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
 
     {% endblock %}
-
+    {% analytical_head_bottom %}
   </head>
 
   <body>
-
+    {% analytical_body_top %}
     <div class="m-b-1">
       <nav class="navbar navbar-expand-md navbar-light bg-light">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,5 +107,6 @@
 
 
     {% endblock javascript %}
+    {% analytical_body_bottom %}
   </body>
 </html>

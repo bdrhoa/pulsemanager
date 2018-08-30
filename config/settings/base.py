@@ -51,6 +51,7 @@ THIRD_PARTY_APPS = [
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
     'languages', # registration
+    'analytical', #GOOGLE ANALYTICS
    #' django_countries', # registration
 ]
 
