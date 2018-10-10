@@ -454,7 +454,7 @@ msgstr ""
 "el Espíritu Santo\n"
 "para discernir y avanzar hacia un iglesia saludable en cada comunidad.\n"
 "El <a href='http://toolbox.multiplicationnetwork.org/' target='_blank'>libro</a> está disponible "
-"como un gran compañero de la herramienta de diagnóstico en línea TYCP."
+"como un gran compañero de la herramienta de diagnóstico en línea TPI."
 
 #: pulsemanager/templates/pages/about.html:32
 msgid "Take Your Church's Pulse Online Diagnostic Tool"
