@@ -36,4 +36,4 @@ services:
       - django
 
   redis:
-    image: redis:3.0
+    image: redis:latest
