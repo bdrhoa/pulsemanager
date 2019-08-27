@@ -21,7 +21,7 @@ django-anymail==2.2
 # --------------------------
 raven==6.7.0
 
-Collectfast==0.6.0
+Collectfast==1.0.0
 
 
 
