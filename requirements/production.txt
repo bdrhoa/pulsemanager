@@ -11,8 +11,6 @@ gunicorn==19.8.1
 
 # Static and Media Storage
 # ------------------------------------------------
-boto3==1.7.18
-django-storages==1.6.6
 
 
 # Email backends for Mailgun, Postmark, SendGrid and more
@@ -22,5 +20,8 @@ django-anymail==2.2
 # Raven is the Sentry client
 # --------------------------
 raven==6.7.0
+
+Collectfast==0.6.0
+
 
 

@@ -31,7 +31,7 @@ def post_save_User_receiver(sender, instance, *args, **kwargs):
             '%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
     handler.setFormatter(formatter)
     logger.addHandler(handler)
-    logger.setLevel(logging.DEBUG)
+    logger.setLevel(logging.ERROR)
 
     logger.debug('*** start post_save_User_receiver ***')
 
@@ -61,5 +61,5 @@ def post_save_User_receiver(sender, instance, *args, **kwargs):
         if activestatuschanged and not previousstatus:
             logger.debug('*** call _create_new_survey ***')
             _create_new_survey(instance)
-    
+
     logger.debug('*** end post_save_User_receiver ***')

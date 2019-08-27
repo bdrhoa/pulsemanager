@@ -40,7 +40,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'pulsemanager'
-copyright = """2017, Brad Rhoads"""
+copyright = """2018, Brad Rhoads"""
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -230,7 +230,7 @@ man_pages = [
 texinfo_documents = [
     ('index', 'pulsemanager', 'pulsemanager Documentation',
      """Brad Rhoads""", 'pulsemanager',
-     """Admin site for the Take Your Churches Pulse survey.""", 'Miscellaneous'),
+     """Manager Application For TYCP""", 'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.

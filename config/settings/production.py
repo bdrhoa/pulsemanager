@@ -1,8 +1,8 @@
 """
 Production settings for pulsemanager project.
 
-- Use WhiteNoise for serving static files
-- Use Amazon's S3 for storing uploaded media
+
+- Use Amazon's S3 for storing static files and uploaded media
 - Use mailgun to send emails
 - Use Redis for cache
 
@@ -30,11 +30,6 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # raven sentry client
 # See https://docs.sentry.io/clients/python/integrations/django/
 INSTALLED_APPS += ['raven.contrib.django.raven_compat', ]
-
-# Use Whitenoise to serve static files
-# See: https://whitenoise.readthedocs.io/
-WHITENOISE_MIDDLEWARE = ['whitenoise.middleware.WhiteNoiseMiddleware', ]
-MIDDLEWARE = WHITENOISE_MIDDLEWARE + MIDDLEWARE
 RAVEN_MIDDLEWARE = ['raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware']
 MIDDLEWARE = RAVEN_MIDDLEWARE + MIDDLEWARE
 
@@ -62,11 +57,13 @@ X_FRAME_OPTIONS = 'DENY'
 # ------------------------------------------------------------------------------
 # Hosts/domain names that are valid for this site
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['pulse.multiplicationnetwork.org', ])
+ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['pulse.tycp.online', ])
 # END SITE CONFIGURATION
 
-INSTALLED_APPS += ['gunicorn', ]
+INSTALLED_APPS += ['gunicorn',]
 
+# GOOGLE ANALYTICS
+GOOGLE_ANALYTICS_PROPERTY_ID = env('GOOGLE_ANALYTICS_PROPERTY_ID')
 
 # STORAGE CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -84,29 +81,36 @@ AWS_QUERYSTRING_AUTH = False
 # AWS cache settings, don't change unless you know what you're doing:
 AWS_EXPIRY = 60 * 60 * 24 * 7
 
-# TODO See: https://github.com/jschneier/django-storages/issues/47
-# Revert the following and use str after the above-mentioned bug is fixed in
-# either django-storage-redux or boto
-control = 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIRY, AWS_EXPIRY)
-AWS_HEADERS = {
-    'Cache-Control': bytes(control, encoding='latin-1')
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIRY, AWS_EXPIRY),
 }
 
 # URL that handles the media served from MEDIA_ROOT, used for managing
 # stored files.
-MEDIA_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+#  See:http://stackoverflow.com/questions/10390244/
+from storages.backends.s3boto3 import S3Boto3Storage
+StaticRootS3BotoStorage = lambda: S3Boto3Storage(location='static')  # noqa
+MediaRootS3BotoStorage = lambda: S3Boto3Storage(location='media', file_overwrite=False)  # noqa
+DEFAULT_FILE_STORAGE = 'config.settings.production.MediaRootS3BotoStorage'
+
+MEDIA_URL = 'https://s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
 
 # Static Assets
 # ------------------------
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+STATIC_URL = 'https://s3.amazonaws.com/%s/static/' % AWS_STORAGE_BUCKET_NAME
+STATICFILES_STORAGE = 'config.settings.production.StaticRootS3BotoStorage'
+# See: https://github.com/antonagestam/collectfast
+# For Django 1.7+, 'collectfast' should come before
+# 'django.contrib.staticfiles'
+AWS_PRELOAD_METADATA = True
+INSTALLED_APPS = ['collectfast', ] + INSTALLED_APPS
 
 # EMAIL
 # ------------------------------------------------------------------------------
 DEFAULT_FROM_EMAIL = env('DJANGO_DEFAULT_FROM_EMAIL',
-                         default='pulsemanager <noreply@pulse.multiplicationnetwork.org>')
+                         default='pulsemanager <noreply@pulse.tycp.online>')
 EMAIL_SUBJECT_PREFIX = env('DJANGO_EMAIL_SUBJECT_PREFIX', default='[pulsemanager]')
 SERVER_EMAIL = env('DJANGO_SERVER_EMAIL', default=DEFAULT_FROM_EMAIL)
 
@@ -133,11 +137,13 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [
 # Use the Heroku-style specification
 # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
 DATABASES['default'] = env.db('DATABASE_URL')
+DATABASES['default']['CONN_MAX_AGE'] = env.int('CONN_MAX_AGE', default=60)
+DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 # CACHING
 # ------------------------------------------------------------------------------
-
 REDIS_LOCATION = '{0}/{1}'.format(env('REDIS_URL', default='redis://127.0.0.1:6379'), 0)
+
 # Heroku URL does not pass the DB number, so we parse it in
 CACHES = {
     'default': {
@@ -213,3 +219,5 @@ ADMIN_URL = env('DJANGO_ADMIN_URL')
 
 # Your production stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
+
+ENVIRONMENT = "PROD"

@@ -7,9 +7,6 @@ https://docs.djangoproject.com/en/dev/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
-
-#TODO: use https://direnv.net/ for enviroment vars
-
 import environ
 import os
 
@@ -20,7 +17,7 @@ APPS_DIR = ROOT_DIR.path('pulsemanager')
 env = environ.Env()
 
 # .env file, should load only in development environment
-READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=False)
+READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=True)
 
 if READ_DOT_ENV_FILE:
     # Operating System Environment variables have precedence over variables defined in the .env file,
@@ -54,6 +51,7 @@ THIRD_PARTY_APPS = [
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
     'languages', # registration
+    'analytical', #GOOGLE ANALYTICS
    #' django_countries', # registration
 ]
 
@@ -65,6 +63,7 @@ LOCAL_APPS = [
     'pulsemanager.lsrc3',
     # custom users app
     'pulsemanager.users.apps.UsersConfig',
+    # Your stuff: custom apps go here
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -75,11 +74,13 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 # MIGRATIONS CONFIGURATION
@@ -108,7 +109,7 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.s
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = [
-    ("""Brad Rhoads""", 'brhoads@edutechmission.org'),
+    ("""Brad Rhoads""", 'bdrhoa@gmail.com'),
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
@@ -119,19 +120,8 @@ MANAGERS = ADMINS
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 # Uses django-environ to accept uri format
 # See: https://django-environ.readthedocs.io/en/latest/#supported-types
-#DATABASES = {
-#    'default': env.db('DATABASE_URL', default='postgres:///pulsemanager'),
-#}
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'pulsemanager',
-        'USER': 'postgres',
-        'PASSWORD': 'bitnami',
-        'HOST': os.environ["PULSEDBHOST"],
-        'PORT': 5432, 
-    }
+    'default': env.db('DATABASE_URL', default='postgres:///pulsemanager'),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
@@ -158,6 +148,25 @@ USE_L10N = True
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
 USE_TZ = True
+
+#LOCALE_PATHS = (
+#    '/Users/bradrhoads/Dropbox/Documents/src/MAF/MMN/pulsemanager/locale',
+#    os.path.join(os.path.dirname(__file__), "locale"),
+#)
+
+LOCALE_PATHS = (
+    os.path.abspath(
+        os.path.join(
+            os.path.dirname(__file__),
+                '../..', "locale")),
+)
+
+#LANGUAGE = 'es'
+
+LANGUAGES = (
+    ('en', 'English'),
+    ('es', 'Spanish'),
+)
 
 # TEMPLATE CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -293,3 +302,5 @@ ADMIN_URL = r'^admin/'
 
 # Your common stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
+
+ENVIRONMENT = "DEV"

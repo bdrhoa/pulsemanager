@@ -7,11 +7,11 @@ from . import views
 app_name="users"
 
 urlpatterns = [
-    url(
-        regex=r'^$',
-        view=views.UserListView.as_view(),
-        name='list'
-    ),
+    # url(
+    #     regex=r'^$',
+    #     view=views.UserListView.as_view(),
+    #     name='list'
+    # ),
     url(
         regex=r'^~redirect/$',
         view=views.UserRedirectView.as_view(),
@@ -28,7 +28,7 @@ urlpatterns = [
         name='update'
     ),
     url(
-        regex=r'^reports/rptemplate/$',
+        regex=r'^reports/tycpreport/$',
         view=views.PDFReportView.as_view(),
         name='report'
     ),

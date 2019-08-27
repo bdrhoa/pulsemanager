@@ -3,7 +3,7 @@ Local settings for pulsemanager project.
 
 - Run in Debug mode
 
-- Use mailhog for emails
+- Use console backend for emails
 
 - Add Django Debug Toolbar
 - Add django-extensions as app
@@ -20,7 +20,7 @@ TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Note: This key only used for development and testing.
-SECRET_KEY = env('DJANGO_SECRET_KEY', default='|Lm5@o>tV95:;y7le<2&CNbkKqf{FF}lFNLYvA]I84{T{N.xB5')
+SECRET_KEY = env('DJANGO_SECRET_KEY', default='Y8x1G0pcI7NIqGJ4uMDJaywXjKIlWrjdb50C15GiWEkl3Gbhu7')
 
 # Mail settings
 # ------------------------------------------------------------------------------
@@ -28,6 +28,8 @@ SECRET_KEY = env('DJANGO_SECRET_KEY', default='|Lm5@o>tV95:;y7le<2&CNbkKqf{FF}lF
 EMAIL_PORT = 1025
 
 EMAIL_HOST = 'localhost'
+EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND',
+                    default='django.core.mail.backends.console.EmailBackend')
 
 
 # CACHING
@@ -42,9 +44,17 @@ CACHES = {
 # django-debug-toolbar
 # ------------------------------------------------------------------------------
 MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware', ]
-INSTALLED_APPS += ['debug_toolbar', ]
+INSTALLED_APPS += ['debug_toolbar', 'rosetta',]
 
 INTERNAL_IPS = ['127.0.0.1', '10.0.2.2', ]
+
+
+import socket
+import os
+# tricks to have debug toolbar when developing with docker
+if os.environ.get('USE_DOCKER') == 'yes':
+    ip = socket.gethostbyname(socket.gethostname())
+    INTERNAL_IPS += [ip[:-1] + '1']
 
 DEBUG_TOOLBAR_CONFIG = {
     'DISABLE_PANELS': [
