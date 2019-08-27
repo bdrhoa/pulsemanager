@@ -64,7 +64,7 @@ CairoSVG==2.1.3
 certifi==2018.1.18
 cffi==1.11.5
 chardet==3.0.4
-checkbox-support==0.37.0
+checkbox-support==0.39.0
 click==6.7
 configobj==5.0.6
 cookiecutter==1.6.0
