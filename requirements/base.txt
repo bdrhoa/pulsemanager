@@ -46,10 +46,6 @@ pytz==2018.4
 django-redis==4.9.0
 redis>=2.10.5
 
-
-
-
-
 # Your custom requirements go here
 
 argon2==0.1.10
@@ -104,19 +100,19 @@ pdfrw==0.4
 poyo==0.4.1
 #psycopg2==2.7.4
 psycopg2-binary==2.8.3
-pycparser==2.18
-pyparsing==2.2.0
-Pyphen==0.9.4
-python-dateutil==2.7.0
+pycparser==2.19
+pyparsing==2.4.2
+Pyphen==0.9.5
+python-dateutil==2.8.0
 python3-openid==3.1.0
 #pytz==2018.4
 #raven==6.7.0
-requests==2.20.0
-requests-oauthlib==0.8.0
-requests-unixsocket==0.1.5
-six==1.10.0
-tinycss2==0.6.1
-urllib3==1.24.2
-WeasyPrint==0.42.3
+requests==2.22.0
+requests-oauthlib==1.2.0
+requests-unixsocket==0.2.0
+six==1.12.0
+tinycss2==1.0.2
+urllib3==1.25.3
+WeasyPrint==48
 webencodings==0.5.1
-whichcraft==0.4.1
+whichcraft==0.6.0
