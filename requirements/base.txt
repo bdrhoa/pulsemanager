@@ -104,7 +104,7 @@ pdfrw==0.4
 poyo==0.4.1
 #psycopg2==2.7.4
 psycopg2-binary==2.7.4
-pycparser==2.18
+pycparser==2.19
 pyparsing==2.2.0
 Pyphen==0.9.4
 python-dateutil==2.7.0
