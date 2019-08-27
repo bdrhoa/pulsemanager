@@ -74,7 +74,7 @@ django-admin-tools==0.8.1
 django-autoslug==1.9.3
 django-analytical==2.4.0
 django-config==0.1.4
-django-configurations==2.0
+django-configurations==2.1
 #django-crispy-forms==1.7.2
 #django-environ==0.4.4
 #django-extensions==2.0.7
