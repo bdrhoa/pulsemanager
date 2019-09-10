@@ -51,7 +51,7 @@ redis>=2.10.5
 
 argon2==0.1.10
 #argon2-cffi==18.1.0
-arrow==0.14.6
+arrow==0.15.1
 asn1crypto==0.24.0
 beautifulsoup4==4.8.0
 binaryornot==0.4.4
