@@ -56,8 +56,8 @@ asn1crypto==0.24.0
 beautifulsoup4==4.8.0
 binaryornot==0.4.4
 blinker==1.4
-cairocffi==1.0.2
 CairoSVG==2.4.2
+cairocffi==1.1.0
 certifi==2019.6.16
 cffi==1.12.3
 chardet==3.0.4
@@ -66,7 +66,7 @@ click==7.0
 configobj==5.0.6
 cookiecutter==1.6.0
 cryptography==2.7
-cssselect2==0.2.1
+cssselect2==0.2.2
 cycler==0.10.0
 defusedxml==0.6.0
 #Django==2.0.5
@@ -92,7 +92,7 @@ Jinja2==2.10.1
 jinja2-time==0.2.0
 MarkupSafe==1.1.1
 matplotlib==3.1.1
-numpy==1.17.1
+numpy==1.17.2
 oauthlib==3.1.0
 pandas==0.25.1
 pdfrw==0.4
@@ -114,4 +114,4 @@ tinycss2==1.0.2
 urllib3==1.25.3
 WeasyPrint==48
 webencodings==0.5.1
-whichcraft==0.6.0
+whichcraft==0.6.1
