@@ -65,7 +65,7 @@ checkbox-support==0.39.0
 click==7.0
 configobj==5.0.6
 cookiecutter==1.6.0
-cryptography==2.7
+cryptography==2.8
 cssselect2==0.2.2
 cycler==0.10.0
 defusedxml==0.6.0
