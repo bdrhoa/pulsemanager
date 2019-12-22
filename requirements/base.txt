@@ -81,7 +81,7 @@ django-configurations==2.1
 #django-extensions==2.0.7
 django-language-field==0.0.3
 #django-model-utils==3.1.1
-django-weasyprint==0.5.4
+django-weasyprint==0.5.5
 environ==1.0
 feedparser==5.2.1
 future==0.17.1
