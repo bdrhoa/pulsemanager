@@ -2,8 +2,10 @@
 -r base.txt
 
 
-coverage==4.5.4
+
+coverage==5.0.4
 django-coverage-plugin==1.8.0
+
 
 Sphinx==2.4.4
 
