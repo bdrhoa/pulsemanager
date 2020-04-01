@@ -11,14 +11,14 @@ Sphinx==2.4.4
 
 django-extensions==2.2.8
 
-Werkzeug==1.0.0
+Werkzeug==1.0.1
 
 django-test-plus==1.4.0
 factory-boy==2.12.0
 
 django-test-plus==1.4.0
 
-Werkzeug==1.0.0
+Werkzeug==1.0.1
 factory-boy==2.12.0
 
 django-debug-toolbar==2.2
