@@ -1,3 +1,3 @@
 # pulsemanager
 
-   ~ Dependencies scanned by PyUp.io ~ 
+   [~ Dependencies scanned by PyUp.io ~ ]
