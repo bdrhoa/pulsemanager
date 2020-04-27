@@ -64,7 +64,7 @@ cairocffi==1.1.0
 cffi==1.14.0
 chardet==3.0.4
 checkbox-support==0.39.0
-click==7.1.1
+click==7.1.2
 configobj==5.0.6
 cookiecutter==1.7.0
 #cookiecutter==1.6.0
