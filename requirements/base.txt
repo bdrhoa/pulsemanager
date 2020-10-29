@@ -69,7 +69,7 @@ configobj==5.0.6
 cookiecutter==1.7.0
 #cookiecutter==1.6.0
 cryptography==2.8
-cssselect2==0.3.0
+cssselect2==0.4.1
 cycler==0.10.0
 defusedxml==0.6.0
 #Django==2.0.5
