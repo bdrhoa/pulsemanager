@@ -93,8 +93,8 @@ idna==2.9
 Jinja2==2.11.3
 jinja2-time==0.2.0
 MarkupSafe==1.1.1
+numpy==1.20.1
 matplotlib==3.4.0
-numpy==1.18.2
 oauthlib==3.1.0
 pandas==1.2.3
 pdfrw==0.4
