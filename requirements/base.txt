@@ -96,7 +96,7 @@ MarkupSafe==1.1.1
 matplotlib==3.4.0
 numpy==1.18.2
 oauthlib==3.1.0
-pandas==1.0.3
+pandas==1.2.3
 pdfrw==0.4
 #Pillow==5.1.0
 #pkg-resources==0.0.0
