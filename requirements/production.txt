@@ -8,7 +8,7 @@
 # ------------------------------------------------
 
 gevent==1.4.0
-gunicorn==20.0.4
+gunicorn==20.1.0
 
 
 # Static and Media Storage
@@ -23,7 +23,7 @@ django-anymail==7.0.0
 # --------------------------
 raven==6.10.0
 
-Collectfast==2.1.0
+Collectfast==2.2.0
 
 
 
