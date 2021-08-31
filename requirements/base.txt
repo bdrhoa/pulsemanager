@@ -9,7 +9,7 @@ wheel==0.36.2
 django==2.2.18 # pyup: < 2.1
 
 # Configuration
-django-environ==0.4.5
+django-environ==0.5.0
 
 
 
