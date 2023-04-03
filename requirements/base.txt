@@ -75,7 +75,7 @@ defusedxml==0.7.1
 django-admin-tools==0.9.1
 #django-allauth==0.35.0
 django-analytical==3.0.0
-django-autoslug==1.9.8
+django-autoslug==1.9.9
 django-config==0.1.4
 django-configurations==2.2
 #django-crispy-forms==1.7.2
