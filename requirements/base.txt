@@ -22,7 +22,7 @@ django-model-utils==4.1.1
 
 # Images
 
-Pillow==8.1.2
+Pillow==10.0.0
 # Password storage
 argon2-cffi==20.1.0
 
