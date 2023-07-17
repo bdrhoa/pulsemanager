@@ -8,7 +8,7 @@
 # ------------------------------------------------
 
 gevent==21.1.2
-gunicorn==20.1.0
+gunicorn==21.0.0
 
 
 # Static and Media Storage
