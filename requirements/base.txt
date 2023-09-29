@@ -69,7 +69,7 @@ cookiecutter==1.7.2
 #cookiecutter==1.6.0
 cssselect2==0.4.1
 cryptography==3.4.7
-cycler==0.10.0
+cycler==0.12.0
 defusedxml==0.7.1
 #Django==2.0.5
 django-admin-tools==0.9.1
