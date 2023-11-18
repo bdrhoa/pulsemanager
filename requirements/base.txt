@@ -56,7 +56,7 @@ asn1crypto==1.4.0
 arrow==1.0.3
 binaryornot==0.4.4
 blinker==1.4
-certifi==2020.12.5
+certifi==2023.11.17
 chardet==4.0.0
 CairoSVG==2.5.2
 cairocffi==1.2.0
