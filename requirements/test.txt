@@ -9,4 +9,4 @@ flake8==3.9.0 # pyup: != 2.6.0
 # pytest
 pytest-django==4.1.0
 
-pytest-sugar==0.9.4
+pytest-sugar==1.0.0
