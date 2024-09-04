@@ -61,7 +61,7 @@ chardet==4.0.0
 CairoSVG==2.5.2
 cairocffi==1.2.0
 CairoSVG==2.5.2
-cffi==1.14.5
+cffi==1.17.1
 checkbox-support==0.39.0
 click==7.1.2
 configobj==5.0.6
