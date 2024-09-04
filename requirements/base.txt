@@ -18,7 +18,7 @@ django-crispy-forms==1.11.2
 
 # Models
 
-django-model-utils==4.1.1
+django-model-utils==5.0.0
 
 # Images
 
